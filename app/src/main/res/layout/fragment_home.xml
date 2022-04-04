@@ -22,8 +22,9 @@
             android:textColor="@color/black"
             android:textSize="96sp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.531"
             app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="92dp" />
+            tools:layout_editor_absoluteY="150dp" />
 
         <TextView
             android:id="@+id/tv_continue"
@@ -37,6 +38,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

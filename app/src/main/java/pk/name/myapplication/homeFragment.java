@@ -11,16 +11,22 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
+import pk.name.myapplication.databinding.FragmentHomeBinding;
 
-public class homeFragment extends Fragment implements View.OnTouchListener{
 
+public class homeFragment extends Fragment implements View.OnTouchListener {
+
+    private FragmentHomeBinding binding;
     ConstraintLayout CL;
-    menuFragment menuFragment = new menuFragment();
+
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+        binding = FragmentHomeBinding.inflate(inflater, container, false);
+        View root = binding.getRoot();
+
+        super.onCreate(savedInstanceState);
 
 
 
