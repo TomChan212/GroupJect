@@ -3,6 +3,7 @@ package pk.name.myapplication;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -13,6 +14,7 @@ import android.view.ViewGroup;
 
 public class homeFragment extends Fragment implements View.OnTouchListener{
 
+    ConstraintLayout CL;
     menuFragment menuFragment = new menuFragment();
 
     @Override
@@ -22,16 +24,12 @@ public class homeFragment extends Fragment implements View.OnTouchListener{
 
 
 
+
         return inflater.inflate(R.layout.fragment_home, container, false);
     }
 
     @Override
     public boolean onTouch(View view, MotionEvent motionEvent) {
-        switch (view.getId()){
-            case R.id.flFragment:
-                getParentFragmentManager().beginTransaction().replace(R.id.flFragment,menuFragment).commit();
-                break;
-        }
         return false;
     }
 }
