@@ -8,7 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import pk.name.myapplication.databinding.FragmentHomeBinding;
 import pk.name.myapplication.databinding.FragmentMenuBinding;
 
 public class menuFragment extends Fragment {
