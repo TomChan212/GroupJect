@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import pk.name.myapplication.databinding.FragmentHomeBinding;
 import pk.name.myapplication.databinding.FragmentMenuBinding;
@@ -21,7 +22,6 @@ public class menuFragment extends Fragment {
         binding = FragmentMenuBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
         // Inflate the layout for this fragment
-
 
 
         return inflater.inflate(R.layout.fragment_menu, container, false);

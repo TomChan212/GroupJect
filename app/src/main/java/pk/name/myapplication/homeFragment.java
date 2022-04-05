@@ -20,7 +20,6 @@ public class homeFragment extends Fragment {
 
     private FragmentHomeBinding binding;
 
-
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
