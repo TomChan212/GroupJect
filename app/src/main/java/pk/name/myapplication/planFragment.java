@@ -8,13 +8,19 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class planFragment extends Fragment {
 
+import pk.name.myapplication.databinding.FragmentHomeBinding;
+import pk.name.myapplication.databinding.FragmentPlanBinding;
+
+public class planFragment extends Fragment {
+    private FragmentPlanBinding binding;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        binding = FragmentPlanBinding.inflate(inflater, container, false);
+        View root = binding.getRoot();
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_plan, container, false);
+        return root;
     }
 }

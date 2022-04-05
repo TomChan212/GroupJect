@@ -26,7 +26,7 @@ public class homeFragment extends Fragment {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        return inflater.inflate(R.layout.fragment_home, container, false);
+        return root;
     }
 
 

@@ -8,13 +8,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class progressFragment extends Fragment {
+import pk.name.myapplication.databinding.FragmentHomeBinding;
+import pk.name.myapplication.databinding.FragmentProgressBinding;
 
+public class progressFragment extends Fragment {
+    private FragmentProgressBinding binding;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        binding = FragmentProgressBinding.inflate(inflater, container, false);
+        View root = binding.getRoot();
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_progress, container, false);
+        return root;
     }
 }

@@ -8,14 +8,19 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import pk.name.myapplication.databinding.FragmentFoodplannerBinding;
+import pk.name.myapplication.databinding.FragmentHomeBinding;
+
 
 public class foodplannerFragment extends Fragment {
-
+    private FragmentFoodplannerBinding binding;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        binding = FragmentFoodplannerBinding.inflate(inflater, container, false);
+        View root = binding.getRoot();
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_foodplanner, container, false);
+        return root;
     }
 }
