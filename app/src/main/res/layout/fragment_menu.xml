@@ -79,7 +79,7 @@
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
-                android:text="Button"
+                android:text="@string/home"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 

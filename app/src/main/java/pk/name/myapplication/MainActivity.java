@@ -21,7 +21,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-
         fragmentTransaction.add(R.id.flFragment,new homeFragment());
         fragmentTransaction.commit();
 
@@ -31,7 +30,6 @@ public class MainActivity extends AppCompatActivity {
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 if (typed == false) {
                     FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                    Toast.makeText(getApplicationContext(), "hi", Toast.LENGTH_LONG).show();
                     fragmentTransaction.replace(R.id.flFragment, new menuFragment());
                     fragmentTransaction.commit();
                     typed = true;
