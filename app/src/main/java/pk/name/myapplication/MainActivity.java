@@ -10,13 +10,14 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.google.android.material.appbar.AppBarLayout;
+
 public class MainActivity extends AppCompatActivity {
     homeFragment homeFragment = new homeFragment();
 
     private RelativeLayout mlayout = null;
     boolean typed = false;
-    ImageView uwork_ic;
-
+    AppBarLayout barLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,8 +30,8 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.add(R.id.flFragment,new homeFragment());
         fragmentTransaction.commit();
 
-        uwork_ic = findViewById(R.id.uwork_ic);
-        uwork_ic.setVisibility(View.GONE);
+        barLayout = findViewById(R.id.appbar);
+        barLayout.setVisibility(View.GONE);
 
         mlayout = (RelativeLayout) findViewById(R.id.mlayout);
         mlayout.setOnTouchListener(new View.OnTouchListener() {
@@ -40,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
                     FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.flFragment, new menuFragment());
                     fragmentTransaction.commit();
-                    uwork_ic.setVisibility(View.VISIBLE);
+                    barLayout.setVisibility(View.VISIBLE);
                     typed = true;
                 }
                 return false;
