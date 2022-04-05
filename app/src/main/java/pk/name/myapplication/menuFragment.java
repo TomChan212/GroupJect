@@ -49,9 +49,29 @@ public class menuFragment extends Fragment implements View.OnClickListener{
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.btn_about:
-                FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.flFragment, new aboutFragment());
-                fragmentTransaction.commit();
+                ChangeFragment(new aboutFragment());
+                break;
+            case R.id.btn_progress:
+                ChangeFragment(new progressFragment());
+                break;
+            case R.id.btn_foodplanner:
+                ChangeFragment(new foodplannerFragment());
+                break;
+            case R.id.btn_plan:
+                ChangeFragment(new planFragment());
+                break;
+            case R.id.btn_deliverwork:
+                ChangeFragment(new deliverworkFragment());
+                break;
+            case R.id.btn_help:
+                ChangeFragment(new helpFragment());
+                break;
         }
+    }
+
+    private void ChangeFragment(Fragment fragment) {
+        FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.flFragment, fragment);
+        fragmentTransaction.commit();
     }
 }

@@ -29,7 +29,6 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.add(R.id.flFragment,new homeFragment());
         fragmentTransaction.commit();
 
-
         uwork_ic = findViewById(R.id.uwork_ic);
         uwork_ic.setVisibility(View.GONE);
 
