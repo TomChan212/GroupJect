@@ -6,6 +6,7 @@ import androidx.fragment.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
@@ -14,15 +15,23 @@ public class MainActivity extends AppCompatActivity {
 
     private RelativeLayout mlayout = null;
     boolean typed = false;
+    ImageView uwork_ic;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        getSupportActionBar().hide();
+
         setContentView(R.layout.activity_main);
 
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.add(R.id.flFragment,new homeFragment());
         fragmentTransaction.commit();
+
+
+        uwork_ic = findViewById(R.id.uwork_ic);
+        uwork_ic.setVisibility(View.GONE);
 
         mlayout = (RelativeLayout) findViewById(R.id.mlayout);
         mlayout.setOnTouchListener(new View.OnTouchListener() {
@@ -32,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
                     FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.flFragment, new menuFragment());
                     fragmentTransaction.commit();
+                    uwork_ic.setVisibility(View.VISIBLE);
                     typed = true;
                 }
                 return false;
