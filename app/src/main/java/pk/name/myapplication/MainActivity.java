@@ -1,5 +1,6 @@
 package pk.name.myapplication;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -9,15 +10,22 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
 import com.google.android.material.appbar.AppBarLayout;
 
 public class MainActivity extends AppCompatActivity {
     homeFragment homeFragment = new homeFragment();
 
+    @Override
+    public void setActionBar(@Nullable Toolbar toolbar) {
+        super.setActionBar(toolbar);
+    }
+
     private RelativeLayout mlayout = null;
     boolean typed = false;
     AppBarLayout barLayout;
+    ImageView uwork;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,6 +56,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        uwork = findViewById(R.id.uwork_ic);
+        uwork.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.flFragment, new menuFragment());
+                fragmentTransaction.commit();
+                return false;
+            }
+        });
     }
-
 }
