@@ -18,8 +18,9 @@ import pk.name.myapplication.databinding.FragmentHomeBinding;
 public class deliverworkFragment extends Fragment implements View.OnClickListener{
     private FragmentDeliverworkBinding binding;
 
-    Button btn_done, btn_back;
-    TextView tv_title, tv_day;
+    Button btn_done, btn_back, btn_title;
+    TextView tv_day;
+    int day=1;
 
 
     @Override
@@ -29,11 +30,12 @@ public class deliverworkFragment extends Fragment implements View.OnClickListene
         View root = binding.getRoot();
         // Inflate the layout for this fragment
 
-        tv_title=root.findViewById(R.id.title);
-        tv_day=root.findViewById(R.id.day);
+
+        tv_day=root.findViewById(R.id.test);
 
         btn_done=root.findViewById(R.id.done);
         btn_back=root.findViewById(R.id.back);
+        btn_title=root.findViewById(R.id.title);
 
         btn_done.setOnClickListener(this);
         btn_back.setOnClickListener(this);
@@ -50,11 +52,22 @@ public class deliverworkFragment extends Fragment implements View.OnClickListene
                 ChangeFragment(new menuFragment());
                 break;
             case R.id.done:
-                //ChangeFragment(new deliverworkFragment);
-                tv_day.setText("Day: button done pressed.");
+                tv_day.setText("Day: "+dayCounter()+"/7");
+                //ChangeFragment(new progressFragment());
+                //code of passing the data of variable "day" to be entered
                 break;
         }
     }
+
+    private int dayCounter(){
+        if (day<7){
+            day+=1;
+        } else {
+            day=1;
+        }
+        return day;
+    }
+
 
     private void ChangeFragment(Fragment fragment) {
         FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
