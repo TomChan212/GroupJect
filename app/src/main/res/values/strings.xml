@@ -14,5 +14,9 @@
     <string name="home">HOME</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="FAQ1">Question 1: Why the plan is weekly instead a month?
+                       Our company is mainly promote the 7 days beauty, if the plan is set in a
+                       month, then our customer may feel stressed or lose the track easily.</string>
+
 
 </resources>
