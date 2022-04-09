@@ -75,3 +75,4 @@ public class menuFragment extends Fragment implements View.OnClickListener{
         fragmentTransaction.commit();
     }
 }
+

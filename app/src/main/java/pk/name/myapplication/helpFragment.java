@@ -19,6 +19,7 @@ public class helpFragment extends Fragment implements View.OnClickListener {
     private FragmentHelpBinding binding;
 
     Button help_back;
+    TextView FAQ;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -27,9 +28,10 @@ public class helpFragment extends Fragment implements View.OnClickListener {
         View root = binding.getRoot();
         // Inflate the layout for this fragment
 
-        TextView FAQ;
+
 
         help_back = root.findViewById(R.id.help_back);
+        help_back.setOnClickListener(this);
         FAQ = root.findViewById(R.id.FAQ);
         FAQ.setText(getResources().getString(R.string.FAQ1));
         return root;
