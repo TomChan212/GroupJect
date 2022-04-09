@@ -91,7 +91,6 @@ public class deliverworkFragment extends Fragment implements View.OnClickListene
             }
         });
     }
-//test
     @Override
     public void onClick(View view) {
         switch(view.getId()){
@@ -99,7 +98,7 @@ public class deliverworkFragment extends Fragment implements View.OnClickListene
                 play();
                 break;
             case R.id.back:
-                ChangeFragment(new menuFragment());
+                ChangeFragment(new deliverworkFragment2());
                 break;
             case R.id.done:
                 tv_day.setText("Day: "+dayCounter()+"/7");
