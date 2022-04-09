@@ -1,14 +1,163 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".aboutFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="match_parent">
 
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="72dp"
+            android:text="Name :"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/btn_aboutme"
+            app:layout_constraintHorizontal_bias="0.192"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_aboutme" />
+
+        <EditText
+            android:id="@+id/editTextTextPersonName"
+            android:layout_width="247dp"
+            android:layout_height="42dp"
+            android:layout_marginStart="12dp"
+            android:ems="10"
+            android:hint="Please enter your name here"
+            android:inputType="textPersonName"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_name"
+            app:layout_constraintStart_toEndOf="@+id/tv_name"
+            app:layout_constraintTop_toTopOf="@+id/tv_name"
+            app:layout_constraintVertical_bias="0.32999998" />
+
+        <Button
+            android:id="@+id/btn_aboutme"
+            android:layout_width="133dp"
+            android:layout_height="43dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="104dp"
+            android:text="About me"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_age"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:text="Age :"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/tv_name"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/tv_name"
+            app:layout_constraintTop_toBottomOf="@+id/tv_name" />
+
+        <EditText
+            android:id="@+id/editTextTextPersonName2"
+            android:layout_width="233dp"
+            android:layout_height="38dp"
+            android:layout_marginStart="12dp"
+            android:ems="10"
+            android:hint="Please enter your age here"
+            android:inputType="number"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_age"
+            app:layout_constraintStart_toEndOf="@+id/tv_age"
+            app:layout_constraintTop_toTopOf="@+id/tv_age"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/tv_height"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:text="Height :"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/tv_age"
+            app:layout_constraintStart_toStartOf="@+id/tv_age"
+            app:layout_constraintTop_toBottomOf="@+id/tv_age" />
+
+        <EditText
+            android:id="@+id/editTextTextPersonName3"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="12dp"
+            android:ems="10"
+            android:hint="Please enter your height here"
+            android:inputType="number"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_height"
+            app:layout_constraintStart_toEndOf="@+id/tv_height"
+            app:layout_constraintTop_toTopOf="@+id/tv_height"
+            app:layout_constraintVertical_bias="0.41000003" />
+
+        <TextView
+            android:id="@+id/tv_weight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="52dp"
+            android:text="Weight :"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/tv_height"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/tv_height"
+            app:layout_constraintTop_toBottomOf="@+id/tv_height" />
+
+        <EditText
+            android:id="@+id/editTextTextPersonName4"
+            android:layout_width="254dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="16dp"
+            android:ems="10"
+            android:hint="Please enter your weight here"
+            android:inputType="number"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_weight"
+            app:layout_constraintStart_toEndOf="@+id/tv_weight"
+            app:layout_constraintTop_toTopOf="@+id/tv_weight"
+            app:layout_constraintVertical_bias="0.13" />
+
+        <TextView
+            android:id="@+id/tv_bmi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="44dp"
+            android:text="BMI :"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/tv_weight"
+            app:layout_constraintHorizontal_bias="0.437"
+            app:layout_constraintStart_toStartOf="@+id/tv_weight"
+            app:layout_constraintTop_toBottomOf="@+id/tv_weight" />
+
+        <TextView
+            android:id="@+id/cal_bmi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:text="0.0"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_bmi"
+            app:layout_constraintStart_toEndOf="@+id/tv_bmi"
+            app:layout_constraintTop_toTopOf="@+id/tv_bmi"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Button
+            android:id="@+id/btn_submit"
+            android:layout_width="146dp"
+            android:layout_height="62dp"
+            android:layout_marginStart="76dp"
+            android:layout_marginTop="44dp"
+            android:text="submit"
+            app:layout_constraintStart_toStartOf="@+id/tv_bmi"
+            app:layout_constraintTop_toBottomOf="@+id/tv_bmi" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

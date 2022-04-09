@@ -19,7 +19,7 @@
                 android:layout_width="184dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
-                android:layout_marginTop="144dp"
+                android:layout_marginTop="136dp"
                 android:text="Help"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -29,9 +29,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="76dp"
-                android:text="FAQ"
-                android:textSize="20sp"
                 android:justificationMode="inter_word"
+                android:text="FAQ"
+                android:textColor="#2196F3"
+                android:textSize="20sp"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/button3" />
 
@@ -39,10 +41,54 @@
                 android:id="@+id/help_back"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="4dp"
                 android:text="Back"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/licse" />
+
+            <TextView
+                android:id="@+id/licse"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="80dp"
+                android:justificationMode="inter_word"
+                android:text="License"
+                android:textStyle="italic"
+                app:layout_constraintEnd_toEndOf="@+id/FAQ3"
+                app:layout_constraintStart_toStartOf="@+id/FAQ3"
+                app:layout_constraintTop_toBottomOf="@+id/FAQ3" />
+
+            <TextView
+                android:id="@+id/FAQ2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="80dp"
+                android:justificationMode="inter_word"
+                android:text="FAQ2"
+                android:textColor="#03A9F4"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/FAQ"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/FAQ" />
+
+            <TextView
+                android:id="@+id/FAQ3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="80dp"
+                android:justificationMode="inter_word"
+                android:text="FAQ3"
+                android:textColor="#03A9F4"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/FAQ2"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/FAQ2" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 

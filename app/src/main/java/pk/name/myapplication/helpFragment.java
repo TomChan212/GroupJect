@@ -19,7 +19,7 @@ public class helpFragment extends Fragment implements View.OnClickListener {
     private FragmentHelpBinding binding;
 
     Button help_back;
-    TextView FAQ;
+    TextView FAQ, License,FAQ2,FAQ3;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -33,7 +33,13 @@ public class helpFragment extends Fragment implements View.OnClickListener {
         help_back = root.findViewById(R.id.help_back);
         help_back.setOnClickListener(this);
         FAQ = root.findViewById(R.id.FAQ);
+        FAQ2 = root.findViewById(R.id.FAQ2);
+        FAQ3 = root.findViewById(R.id.FAQ3);
+        License = root.findViewById(R.id.licse);
         FAQ.setText(getResources().getString(R.string.FAQ1));
+        FAQ2.setText(getResources().getString(R.string.FAQ2));
+        FAQ3.setText(getResources().getString(R.string.FAQ3));
+        License.setText(getResources().getString(R.string.License));
         return root;
     }
 

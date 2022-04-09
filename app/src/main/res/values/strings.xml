@@ -14,9 +14,26 @@
     <string name="home">HOME</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="FAQ1">Question 1: Why the plan is weekly instead a month?
-                       Our company is mainly promote the 7 days beauty, if the plan is set in a
+    <string name="FAQ1">Mostly asked questions:\n\n
+                       Question 1: Why the plan is weekly instead a month?\n\n
+                       Ans: Our company is mainly promote the 7 days beauty, if the plan is set in a
                        month, then our customer may feel stressed or lose the track easily.</string>
+
+    <string name="FAQ2">Question 2: How did the company provide the workout and meal ideas?\n\n
+                        Ans: Our company has many professional nutrients and rich experienced coach!
+                        so all the workout and meal provided in the application is safe to follow!</string>
+
+    <string name="FAQ3">Question 3: Why did the application is invented?\n\n
+                        Ans: Our company wants to provide a great plan for each of the citizens
+                        to workout and eat healthy even though they have busy work to do everyday.
+                        We hope to remind the citizens that our body health is also essential compare
+                        to the work and money we have earned in modern life</string>
+
+    <string name="License">License number: AB24484542\n
+                           Granted to: UWork\n
+                           To conduct the business of: Health and fitness tracker\n
+                           Issue Date: 4/1/2021\n
+                           Expiration Date: 4/1/2026</string>
 
 
 </resources>
