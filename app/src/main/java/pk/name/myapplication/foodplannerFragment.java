@@ -1,6 +1,8 @@
 package pk.name.myapplication;
 
+import android.content.Context;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AlertDialog;
@@ -25,8 +27,12 @@ public class foodplannerFragment extends Fragment implements View.OnTouchListene
 
     private Button btn_title,btn_done;
     private TextView tv_day,tv_breakfast,tv_breakfast2,tv_lunch,tv_lunch2,tv_dinner,tv_dinner2,tv_suggest;
-    private int day=7;
+    private int day;
     private float bmi=10;
+
+    SharedPreferences sharedPreferences;
+    public static final String mypregerence = "mypref";
+    public static final String sday = "sdayKey";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -45,6 +51,10 @@ public class foodplannerFragment extends Fragment implements View.OnTouchListene
         tv_dinner2 = root.findViewById(R.id.tv_fp_dinner2);
         tv_suggest = root.findViewById(R.id.tv_fp_suggest);
 
+        sharedPreferences = getActivity().getSharedPreferences(mypregerence, Context.MODE_PRIVATE);
+
+        day = sharedPreferences.getInt(sday,1);
+
         tv_breakfast2.setOnTouchListener(this);
         tv_dinner2.setOnTouchListener(this);
         tv_lunch2.setOnTouchListener(this);
@@ -59,6 +69,8 @@ public class foodplannerFragment extends Fragment implements View.OnTouchListene
                 FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.flFragment, new menuFragment());
                 fragmentTransaction.commit();
+                Log.d("terry",String.valueOf(day));
+                Log.d("terry",String.valueOf(sharedPreferences.getInt(sday,0)));
             }
         });
 
@@ -66,6 +78,8 @@ public class foodplannerFragment extends Fragment implements View.OnTouchListene
 
         changeDietChart();
 
+        Log.d("terry",String.valueOf(day));
+        Log.d("terry",String.valueOf(sharedPreferences.getInt(sday,0)));
         // Inflate the layout for this fragment
         return root;
     }
@@ -192,10 +206,14 @@ public class foodplannerFragment extends Fragment implements View.OnTouchListene
     }
 
     public void changeDay(){
-        if (day<7)
-            day+=1;
-        else
+        if (day<7) {
+            day += 1;
+            sharedPreferences.edit().putInt(sday, day).commit();
+        }
+        else {
             day = 1;
+            sharedPreferences.edit().putInt(sday, day).commit();
+        }
     }
 
     @Override
