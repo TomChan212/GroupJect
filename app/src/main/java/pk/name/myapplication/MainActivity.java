@@ -1,6 +1,7 @@
 package pk.name.myapplication;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     boolean typed = false;
     AppBarLayout barLayout;
     ImageView uwork;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.add(R.id.flFragment,new homeFragment());
+        fragmentTransaction.add(R.id.flFragment, new homeFragment());
         fragmentTransaction.commit();
 
         barLayout = findViewById(R.id.appbar);
@@ -63,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.flFragment, new menuFragment());
+                fragmentTransaction.replace(R.id.flFragment, new menuFragment()).addToBackStack(null);
                 fragmentTransaction.commit();
                 return false;
             }
@@ -71,4 +73,34 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+    /*
+    @Override
+    public boolean onKeyDown(int keyCode,KeyEvent e){
+        if (keyCode == KeyEvent.KEYCODE_BACK){
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setMessage(getResources().getString(R.string.Wanna_quit)).setCancelable(false).setPositiveButton(getResources().getString(R.string.quit_yes), new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    finish();
+                }
+            }).setNegativeButton(getResources().getString(R.string.quit_no), new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    dialogInterface.cancel();
+                }
+            });
+            AlertDialog alertDialog = builder.create();
+            alertDialog.setTitle(getResources().getString(R.string.quit_title));
+            alertDialog.show();
+            return true;
+        }
+        else{
+            return super.onKeyDown(keyCode,e);
+        }
+    }*/
+
+
+
+
 }

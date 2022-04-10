@@ -61,7 +61,7 @@ public class menuFragment extends Fragment implements View.OnClickListener{
                 ChangeFragment(new planFragment());
                 break;
             case R.id.btn_deliverwork:
-                ChangeFragment(new deliverworkFragment());
+                ChangeFragment(new deliverworkFragment2());
                 break;
             case R.id.btn_help:
                 ChangeFragment(new helpFragment());
@@ -71,7 +71,7 @@ public class menuFragment extends Fragment implements View.OnClickListener{
 
     private void ChangeFragment(Fragment fragment) {
         FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.flFragment, fragment);
+        fragmentTransaction.replace(R.id.flFragment, fragment).addToBackStack(null);
         fragmentTransaction.commit();
     }
 }

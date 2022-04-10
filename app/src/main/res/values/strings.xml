@@ -12,7 +12,7 @@
     <string name="deliverwork">deliverwork</string>
     <string name="help">help</string>
     <string name="home">HOME</string>
-    <!-- TODO: Remove or change this placeholder text -->
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="FAQ1">Mostly asked questions:\n\n
                        Question 1: Why the plan is weekly instead a month?\n\n
@@ -34,6 +34,12 @@
                            To conduct the business of: Health and fitness tracker\n
                            Issue Date: 4/1/2021\n
                            Expiration Date: 4/1/2026</string>
+
+    //--------------------Quit dialog------------
+    <string name="Wanna_quit">Do you want to quit the App</string>
+    <string name="quit_yes">Yes</string>
+    <string name="quit_no">No</string>
+    <string name="quit_title">Hey you are leaving</string>
 
 
 </resources>
