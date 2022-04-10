@@ -44,7 +44,7 @@
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="wrap_content"
                 android:background="@color/white"
                 android:minHeight="?attr/actionBarSize"
                 android:theme="?attr/actionBarTheme"
@@ -54,14 +54,15 @@
 
             <ImageView
                 android:id="@+id/uwork_ic"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:contentDescription="TODO"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/uber_logo"
-                android:contentDescription="TODO" />
+                app:srcCompat="@drawable/uber_logo_notext" />
         </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     </com.google.android.material.appbar.AppBarLayout>
 
