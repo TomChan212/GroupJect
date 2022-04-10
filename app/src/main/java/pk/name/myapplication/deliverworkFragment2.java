@@ -63,7 +63,7 @@ public class deliverworkFragment2 extends Fragment implements View.OnClickListen
     }
     private void ChangeFragment(Fragment fragment) {
         FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.flFragment, fragment);
+        fragmentTransaction.replace(R.id.flFragment, fragment).addToBackStack(null);
         fragmentTransaction.commit();
     }
 }
