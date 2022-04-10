@@ -13,6 +13,7 @@
         android:id="@+id/CL"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@drawable/gym2"
         tools:context=".MainActivity">
 
         <TextView
@@ -38,7 +39,7 @@
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.14" />
+            app:layout_constraintVertical_bias="0.047" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
