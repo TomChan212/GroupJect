@@ -28,11 +28,12 @@ public class foodplannerFragment extends Fragment implements View.OnTouchListene
     private Button btn_title,btn_done;
     private TextView tv_day,tv_breakfast,tv_breakfast2,tv_lunch,tv_lunch2,tv_dinner,tv_dinner2,tv_suggest;
     private int day;
-    private float bmi=10;
+    private float bmi;
 
     SharedPreferences sharedPreferences;
     public static final String mypregerence = "mypref";
     public static final String sday = "sdayKey";
+    public static final String BMI = "BMIkey";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -54,6 +55,7 @@ public class foodplannerFragment extends Fragment implements View.OnTouchListene
         sharedPreferences = getActivity().getSharedPreferences(mypregerence, Context.MODE_PRIVATE);
 
         day = sharedPreferences.getInt(sday,1);
+        bmi = Float.valueOf(sharedPreferences.getString(BMI,"10"));
 
         tv_breakfast2.setOnTouchListener(this);
         tv_dinner2.setOnTouchListener(this);
@@ -69,17 +71,12 @@ public class foodplannerFragment extends Fragment implements View.OnTouchListene
                 FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.flFragment, new menuFragment());
                 fragmentTransaction.commit();
-                Log.d("terry",String.valueOf(day));
-                Log.d("terry",String.valueOf(sharedPreferences.getInt(sday,0)));
             }
         });
 
         tv_day.setText(String.valueOf(day)+"/7");
 
         changeDietChart();
-
-        Log.d("terry",String.valueOf(day));
-        Log.d("terry",String.valueOf(sharedPreferences.getInt(sday,0)));
         // Inflate the layout for this fragment
         return root;
     }
