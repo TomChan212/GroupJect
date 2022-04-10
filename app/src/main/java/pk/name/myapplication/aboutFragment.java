@@ -7,6 +7,7 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -55,6 +56,7 @@ public class aboutFragment extends Fragment  implements  View.OnClickListener {
 
         cal_bmi = root.findViewById(R.id.cal_bmi);
         shared_pref = getContext().getSharedPreferences(mypref, Context.MODE_PRIVATE);
+
         if (shared_pref.contains(BMI)) {
             cal_bmi.setText(shared_pref.getString(BMI, ""));
         }
@@ -66,16 +68,21 @@ public class aboutFragment extends Fragment  implements  View.OnClickListener {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_submit:
-                SharedPreferences.Editor editor = shared_pref.edit();
-
-                editor.putString(name, name_input.getText().toString());
-                editor.putString(age, age_input.getText().toString());
-                editor.putString(weight, weight_input.getText().toString());
-                editor.putString(height, height_input.getText().toString());
-                calBMI(Double.parseDouble(height_input.getText().toString()), Double.parseDouble(weight_input.getText().toString()));
-                editor.commit();
-
-                Toast.makeText(getContext().getApplicationContext(), "Your plan has arrived! Please go to Deliverwork", Toast.LENGTH_LONG).show();
+                if(     name_input.getText().toString().isEmpty() ||
+                        age_input.getText().toString().isEmpty() ||
+                        weight_input.getText().toString().isEmpty() ||
+                        height_input.getText().toString().isEmpty()) {
+                        Toast.makeText(getContext().getApplicationContext(), "Make sure all your data is completed !!", Toast.LENGTH_LONG).show();
+                    } else {
+                        SharedPreferences.Editor editor = shared_pref.edit();
+                        editor.putString(name, name_input.getText().toString());
+                        editor.putString(age, age_input.getText().toString());
+                        editor.putString(weight, weight_input.getText().toString());
+                        editor.putString(height, height_input.getText().toString());
+                        calBMI(Double.parseDouble(height_input.getText().toString()), Double.parseDouble(weight_input.getText().toString()));
+                        editor.commit();
+                        Toast.makeText(getContext().getApplicationContext(), "Your plan has arrived! Please go to Deliverwork", Toast.LENGTH_LONG).show();
+                    }
                 break;
 
             case R.id.about_back:
