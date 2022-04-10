@@ -28,11 +28,15 @@ public class MainActivity extends AppCompatActivity {
     private RelativeLayout mlayout = null;
     boolean typed = false;
     AppBarLayout barLayout;
+    Toolbar toolbar;
     ImageView uwork;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        toolbar = findViewById(R.id.toolbar);
+        setActionBar(toolbar);
 
         getSupportActionBar().hide();
 

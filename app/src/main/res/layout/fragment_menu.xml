@@ -15,14 +15,16 @@
             android:layout_height="wrap_content">
 
             <Button
+                android:background="@drawable/roundstyle"
                 android:id="@+id/btn_about"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="112dp"
-                android:textAlignment="center"
+                android:drawableTop="@drawable/ic_aboutme"
                 android:gravity="center|bottom"
                 android:text="@string/about"
+                android:textAlignment="center"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -32,6 +34,7 @@
                 android:layout_height="150dp"
                 android:layout_marginTop="112dp"
                 android:layout_marginEnd="32dp"
+                android:backgroundTint="#BB86FC"
                 android:gravity="center|bottom"
                 android:text="@string/progress"
                 android:textAlignment="center"
@@ -44,6 +47,7 @@
                 android:layout_height="150dp"
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="300dp"
+                android:backgroundTint="#BB86FC"
                 android:gravity="center|bottom"
                 android:text="@string/foodplanner"
                 android:textAlignment="center"
@@ -56,6 +60,7 @@
                 android:layout_height="150dp"
                 android:layout_marginTop="300dp"
                 android:layout_marginEnd="32dp"
+                android:backgroundTint="#BB86FC"
                 android:gravity="center|bottom"
                 android:text="@string/plan"
                 android:textAlignment="center"
@@ -68,6 +73,7 @@
                 android:layout_height="150dp"
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="488dp"
+                android:backgroundTint="#BB86FC"
                 android:gravity="center|bottom"
                 android:text="@string/deliverwork"
                 android:textAlignment="center"
@@ -80,19 +86,11 @@
                 android:layout_height="150dp"
                 android:layout_marginTop="488dp"
                 android:layout_marginEnd="32dp"
+                android:backgroundTint="#BB86FC"
                 android:gravity="center|bottom"
                 android:text="@string/help"
                 android:textAlignment="center"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <Button
-                android:id="@+id/btn_home"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                android:text="@string/home"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
