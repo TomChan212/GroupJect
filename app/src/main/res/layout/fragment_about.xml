@@ -25,7 +25,7 @@
             app:layout_constraintTop_toBottomOf="@+id/btn_aboutme" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName"
+            android:id="@+id/name_input"
             android:layout_width="247dp"
             android:layout_height="42dp"
             android:layout_marginStart="12dp"
@@ -61,9 +61,9 @@
             app:layout_constraintTop_toBottomOf="@+id/tv_name" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName2"
-            android:layout_width="233dp"
-            android:layout_height="38dp"
+            android:id="@+id/age_input"
+            android:layout_width="245dp"
+            android:layout_height="45dp"
             android:layout_marginStart="12dp"
             android:ems="10"
             android:hint="Please enter your age here"
@@ -86,7 +86,7 @@
             app:layout_constraintTop_toBottomOf="@+id/tv_age" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName3"
+            android:id="@+id/height_input"
             android:layout_width="250dp"
             android:layout_height="50dp"
             android:layout_marginStart="12dp"
@@ -112,7 +112,7 @@
             app:layout_constraintTop_toBottomOf="@+id/tv_height" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName4"
+            android:id="@+id/weight_input"
             android:layout_width="254dp"
             android:layout_height="40dp"
             android:layout_marginStart="16dp"
@@ -152,12 +152,22 @@
 
         <Button
             android:id="@+id/btn_submit"
-            android:layout_width="146dp"
-            android:layout_height="62dp"
-            android:layout_marginStart="76dp"
-            android:layout_marginTop="44dp"
+            android:layout_width="141dp"
+            android:layout_height="59dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="20dp"
             android:text="submit"
             app:layout_constraintStart_toStartOf="@+id/tv_bmi"
             app:layout_constraintTop_toBottomOf="@+id/tv_bmi" />
+
+        <Button
+            android:id="@+id/about_back"
+            android:layout_width="135dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="24dp"
+            android:text="BACK"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_submit"
+            app:layout_constraintStart_toEndOf="@+id/btn_submit"
+            app:layout_constraintTop_toTopOf="@+id/btn_submit" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
