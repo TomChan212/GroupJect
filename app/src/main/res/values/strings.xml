@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">My Application</string>
     <string name="uwork">Uwork</string>
-    <string name="next_page">Click to continue!</string>
+    <string name="next_page">Tap to continue!</string>
 
     //--------------------------------------------------menu
     button----------------------------------------------------
