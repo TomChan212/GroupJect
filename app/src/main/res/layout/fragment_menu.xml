@@ -20,6 +20,8 @@
                 android:layout_height="150dp"
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="112dp"
+                android:textAlignment="center"
+                android:gravity="center|bottom"
                 android:text="@string/about"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -30,7 +32,9 @@
                 android:layout_height="150dp"
                 android:layout_marginTop="112dp"
                 android:layout_marginEnd="32dp"
+                android:gravity="center|bottom"
                 android:text="@string/progress"
+                android:textAlignment="center"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -40,7 +44,9 @@
                 android:layout_height="150dp"
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="300dp"
+                android:gravity="center|bottom"
                 android:text="@string/foodplanner"
+                android:textAlignment="center"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -50,7 +56,9 @@
                 android:layout_height="150dp"
                 android:layout_marginTop="300dp"
                 android:layout_marginEnd="32dp"
+                android:gravity="center|bottom"
                 android:text="@string/plan"
+                android:textAlignment="center"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -60,7 +68,9 @@
                 android:layout_height="150dp"
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="488dp"
+                android:gravity="center|bottom"
                 android:text="@string/deliverwork"
+                android:textAlignment="center"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -70,7 +80,9 @@
                 android:layout_height="150dp"
                 android:layout_marginTop="488dp"
                 android:layout_marginEnd="32dp"
+                android:gravity="center|bottom"
                 android:text="@string/help"
+                android:textAlignment="center"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
