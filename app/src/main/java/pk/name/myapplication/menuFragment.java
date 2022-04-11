@@ -1,5 +1,7 @@
 package pk.name.myapplication;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -17,6 +19,14 @@ public class menuFragment extends Fragment implements View.OnClickListener{
 
     private FragmentMenuBinding binding;
     Button btn_about,btn_progress,btn_foodplanner,btn_plan,btn_deliverwork,btn_help;
+
+    SharedPreferences shared_pref;
+    public static final String mypref = "mypref";
+    public static final String name = "mypref";
+    public static final String age = "agekey";
+    public static final String height = "heightkey";
+    public static final String weight = "weightkey";
+    public static final String BMI = "BMIkey";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -38,6 +48,8 @@ public class menuFragment extends Fragment implements View.OnClickListener{
         btn_plan.setOnClickListener(this);
         btn_deliverwork.setOnClickListener(this);
         btn_help.setOnClickListener(this);
+
+        //first_time();
 
 
 
@@ -74,5 +86,15 @@ public class menuFragment extends Fragment implements View.OnClickListener{
         fragmentTransaction.replace(R.id.flFragment, fragment).addToBackStack(null);
         fragmentTransaction.commit();
     }
+
+    /*
+    private void first_time(){
+        shared_pref = getContext().getSharedPreferences(mypref,
+                Context.MODE_PRIVATE);
+        if(SharedPreferences.getString(name, "").isEmpty() || )
+    }
+
+     */
 }
+
 
