@@ -8,6 +8,7 @@ import androidx.fragment.app.FragmentTransaction;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     public static final String height = "heightkey";
     public static final String weight = "weightkey";
     public static final String BMI = "BMIkey";
+    boolean secondtime = false;
 
     @Override
     public void setActionBar(@Nullable Toolbar toolbar) {
@@ -59,28 +61,40 @@ public class MainActivity extends AppCompatActivity {
         barLayout.setVisibility(View.GONE);
 
         mlayout = (RelativeLayout) findViewById(R.id.mlayout);
+
         mlayout.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
+
+
                 if (typed == false) {
-                    if(     shared_pref.getString(name, "").isEmpty()||
-                            shared_pref.getString(age, "").isEmpty()||
-                            shared_pref.getString(height, "").isEmpty()||
-                            shared_pref.getString(weight, "").isEmpty())
-                    {
-                        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                        fragmentTransaction.replace(R.id.flFragment, new aboutFragment()).addToBackStack(null);
-                        fragmentTransaction.commit();
-                    }
-                    else {
+                    if (secondtime == true) {
                         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
                         fragmentTransaction.replace(R.id.flFragment, new menuFragment()).addToBackStack(null);
                         fragmentTransaction.commit();
                     }
+                    try{   if( shared_pref.getString(name, "").isEmpty()||
+                            shared_pref.getString(age, "").isEmpty()||
+                            shared_pref.getString(height, "").isEmpty()||
+                            shared_pref.getString(weight, "").isEmpty()){
+
+                    }
+
+                    }
+                    catch (Exception exception) {
+                        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                        fragmentTransaction.replace(R.id.flFragment, new aboutFragment()).addToBackStack(null);
+                        fragmentTransaction.commit();
+                        secondtime = true;
+                        Log.d("hepp","happyu");
+                    }
+
                     barLayout.setVisibility(View.VISIBLE);
                     typed = true;
                 }
                 return false;
+
+
             }
         });
 
