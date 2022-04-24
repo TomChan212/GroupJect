@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
@@ -19,6 +20,14 @@ import com.google.android.material.appbar.AppBarLayout;
 
 public class MainActivity extends AppCompatActivity {
     homeFragment homeFragment = new homeFragment();
+
+    SharedPreferences shared_pref;
+    public static final String mypref = "mypref";
+    public static final String name = "mypref";
+    public static final String age = "agekey";
+    public static final String height = "heightkey";
+    public static final String weight = "weightkey";
+    public static final String BMI = "BMIkey";
 
     @Override
     public void setActionBar(@Nullable Toolbar toolbar) {
@@ -54,9 +63,20 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 if (typed == false) {
-                    FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                    fragmentTransaction.replace(R.id.flFragment, new menuFragment());
-                    fragmentTransaction.commit();
+                    if(     shared_pref.getString(name, "").isEmpty()||
+                            shared_pref.getString(age, "").isEmpty()||
+                            shared_pref.getString(height, "").isEmpty()||
+                            shared_pref.getString(weight, "").isEmpty())
+                    {
+                        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                        fragmentTransaction.replace(R.id.flFragment, new aboutFragment()).addToBackStack(null);
+                        fragmentTransaction.commit();
+                    }
+                    else {
+                        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                        fragmentTransaction.replace(R.id.flFragment, new menuFragment()).addToBackStack(null);
+                        fragmentTransaction.commit();
+                    }
                     barLayout.setVisibility(View.VISIBLE);
                     typed = true;
                 }
@@ -68,15 +88,21 @@ public class MainActivity extends AppCompatActivity {
         uwork.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
-                FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.flFragment, new menuFragment()).addToBackStack(null);
-                fragmentTransaction.commit();
+                    FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                    fragmentTransaction.replace(R.id.flFragment, new menuFragment()).addToBackStack(null);
+                    fragmentTransaction.commit();
                 return false;
             }
         });
 
 
+
     }
+
+
+
+
+
 
     /*
     @Override
