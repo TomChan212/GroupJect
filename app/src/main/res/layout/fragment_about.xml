@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gym2"
     tools:context=".aboutFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -17,6 +18,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="72dp"
             android:text="Name :"
+            android:textColor="#000000"
             android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/btn_aboutme"
@@ -43,6 +45,7 @@
             android:layout_height="43dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="104dp"
+            android:backgroundTint="#0E0E0E"
             android:text="About me"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -156,6 +159,7 @@
             android:layout_height="59dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="20dp"
+            android:backgroundTint="#000000"
             android:text="submit"
             app:layout_constraintStart_toStartOf="@+id/tv_bmi"
             app:layout_constraintTop_toBottomOf="@+id/tv_bmi" />
@@ -165,9 +169,18 @@
             android:layout_width="135dp"
             android:layout_height="60dp"
             android:layout_marginStart="24dp"
+            android:backgroundTint="#000000"
             android:text="BACK"
             app:layout_constraintBottom_toBottomOf="@+id/btn_submit"
             app:layout_constraintStart_toEndOf="@+id/btn_submit"
             app:layout_constraintTop_toTopOf="@+id/btn_submit" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="234dp"
+            android:layout_height="39dp"
+            android:src="@android:drawable/screen_background_light"
+            tools:layout_editor_absoluteX="57dp"
+            tools:layout_editor_absoluteY="177dp" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
