@@ -20,23 +20,24 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import pk.name.myapplication.databinding.FragmentDeliverwork3Binding;
-import pk.name.myapplication.databinding.FragmentDeliverworkBinding;
+import pk.name.myapplication.databinding.FragmentHomeBinding;
 
 
 public class deliverworkFragment3 extends Fragment implements View.OnClickListener{
     private FragmentDeliverwork3Binding binding;
 
-    SharedPreferences sharedPreferences;
-    public static final String sday = "sdayKey";
-    public static final String mypref = "mypref";
-
     Button btn_next, btn_back, btn_title,btn_play;
     MediaPlayer mediaPlayer;
     SurfaceView sv;
     SeekBar seekBar;
-    TextView tv_day;
-    int[] raw_index={R.raw.video1};
-    int day;
+    TextView tv_day,tv_group;
+    int[] raw_index={R.raw.pushup};
+    int day=1;
+    float bmi;
+
+    SharedPreferences sharedPreferences;
+    public static final String mypregerence = "mypref";
+    public static final String BMI = "BMIkey";
 
 
     @Override
@@ -46,29 +47,41 @@ public class deliverworkFragment3 extends Fragment implements View.OnClickListen
         View root = binding.getRoot();
         // Inflate the layout for this fragment
 
-        sharedPreferences = getActivity().getSharedPreferences(mypref, Context.MODE_PRIVATE);
+
         btn_play=root.findViewById(R.id.btn_play);
         btn_play.setOnClickListener(this);
         sv = root.findViewById(R.id.surfaceView);
-        mediaPlayer=MediaPlayer.create(getActivity(),R.raw.video1);
+        mediaPlayer=MediaPlayer.create(getActivity(),R.raw.pushup);
         seekBar=root.findViewById(R.id.seekBar);
         seekBar.setClickable(false);
         AddSeekBarChangeListener();
 
-        day = sharedPreferences.getInt(sday,1);
-        tv_day=root.findViewById(R.id.tv_day);
-        tv_day.setText(String.valueOf(day)+"/7");
 
-        btn_next=root.findViewById(R.id.btn_done);
+        tv_day=root.findViewById(R.id.test);
+
+        btn_next=root.findViewById(R.id.btn_next);
         btn_back=root.findViewById(R.id.back);
         btn_title=root.findViewById(R.id.title);
 
         btn_next.setOnClickListener(this);
         btn_back.setOnClickListener(this);
 
-
+        tv_group=root.findViewById(R.id.note);
+        sharedPreferences = getActivity().getSharedPreferences(mypregerence, Context.MODE_PRIVATE);
+        bmi = Float.valueOf(sharedPreferences.getString(BMI,"10"));
+        showGroup();
 
         return root;
+    }
+
+    public void showGroup(){
+        if (bmi<18.5) {
+            tv_group.setText("Groups of 5 (2 groups)");
+        }else if (bmi<25){
+            tv_group.setText("Groups of 10 (5 groups)");
+        }else {
+            tv_group.setText("Groups of 20 (10 groups)");
+        }
     }
 
     public void play(){
@@ -108,7 +121,7 @@ public class deliverworkFragment3 extends Fragment implements View.OnClickListen
             case R.id.back:
                 ChangeFragment(new deliverworkFragment2());
                 break;
-            case R.id.btn_done:
+            case R.id.btn_next:
                 ChangeFragment(new deliverworkFragment4());
                 break;
         }

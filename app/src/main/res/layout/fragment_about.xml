@@ -59,7 +59,7 @@
             android:id="@+id/tv_age"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="36dp"
             android:text="Age :"
             android:textColor="#000000"
             android:textSize="24sp"
@@ -88,13 +88,14 @@
             android:id="@+id/tv_height"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="48dp"
             android:text="Height :"
             android:textColor="#000000"
             android:textSize="24sp"
             android:textStyle="bold"
             android:translationZ="2dp"
             app:layout_constraintEnd_toEndOf="@+id/tv_age"
+            app:layout_constraintHorizontal_bias="0.785"
             app:layout_constraintStart_toStartOf="@+id/tv_age"
             app:layout_constraintTop_toBottomOf="@+id/tv_age" />
 
@@ -195,7 +196,7 @@
 
         <ImageView
             android:id="@+id/white1"
-            android:layout_width="345dp"
+            android:layout_width="365dp"
             android:layout_height="46dp"
             android:layout_marginTop="176dp"
             android:alpha="0.6"
@@ -220,8 +221,8 @@
 
         <ImageView
             android:id="@+id/white4"
-            android:layout_width="345dp"
-            android:layout_height="46dp"
+            android:layout_width="365dp"
+            android:layout_height="48dp"
             android:layout_marginTop="40dp"
             android:alpha="0.6"
             android:src="@android:drawable/screen_background_light"
@@ -232,8 +233,8 @@
 
         <ImageView
             android:id="@+id/white3"
-            android:layout_width="345dp"
-            android:layout_height="46dp"
+            android:layout_width="363dp"
+            android:layout_height="51dp"
             android:layout_marginTop="25dp"
             android:alpha="0.6"
             android:src="@android:drawable/screen_background_light"

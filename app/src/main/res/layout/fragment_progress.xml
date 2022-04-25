@@ -24,7 +24,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/tv_day"
+            android:id="@+id/progress_count"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="160dp"
@@ -36,16 +36,28 @@
             app:layout_constraintTop_toBottomOf="@+id/Progress" />
 
         <ProgressBar
+            android:id="@+id/progress_bar"
             style="@style/Widget.AppCompat.ProgressBar.Horizontal"
             android:layout_width="300dp"
             android:layout_height="50dp"
             android:layout_marginStart="52dp"
             android:layout_marginTop="36dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_day"
+            app:layout_constraintTop_toBottomOf="@+id/progress_count"
             android:max="7"
             android:progress="1"
             />
+
+        <Button
+            android:id="@+id/progress_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="160dp"
+            android:layout_marginTop="50dp"
+            android:backgroundTint="#000000"
+            android:text="Back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/progress_bar" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
