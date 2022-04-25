@@ -122,7 +122,7 @@ public class deliverworkFragment4 extends Fragment implements View.OnClickListen
                 ChangeFragment(new deliverworkFragment2());
                 break;
             case R.id.btn_next:
-                ChangeFragment(new deliverworkFragment2());
+                ChangeFragment(new progressFragment());
                 break;
         }
     }
