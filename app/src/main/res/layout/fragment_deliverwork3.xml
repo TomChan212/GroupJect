@@ -33,6 +33,16 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/title" />
 
+        <TextView
+            android:id="@+id/note"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Groups of x (y groups)"
+            android:textSize="24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/test" />
+
         <SurfaceView
             android:id="@+id/surfaceView"
             android:layout_width="366dp"
@@ -59,7 +69,8 @@
             android:id="@+id/btn_next"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="304dp"
+            android:layout_marginStart="300dp"
+            android:layout_marginTop="8dp"
             android:layout_weight="1"
             android:backgroundTint="#000000"
             android:text="next"
@@ -79,8 +90,8 @@
             android:id="@+id/back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="4dp"
-            android:layout_marginBottom="4dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="16dp"
             android:backgroundTint="#000000"
             android:text="Back"
             app:layout_constraintBottom_toBottomOf="parent"
