@@ -29,7 +29,7 @@ public class deliverworkFragment extends Fragment implements View.OnClickListene
     SurfaceView sv;
     SeekBar seekBar;
     TextView tv_day;
-    int[] raw_index={R.raw.video1};
+    int[] raw_index={R.raw.crunch};
     int day=1;
 
 
@@ -44,7 +44,7 @@ public class deliverworkFragment extends Fragment implements View.OnClickListene
         btn_play=root.findViewById(R.id.btn_play);
         btn_play.setOnClickListener(this);
         sv = root.findViewById(R.id.surfaceView);
-        mediaPlayer=MediaPlayer.create(getActivity(),R.raw.video1);
+        mediaPlayer=MediaPlayer.create(getActivity(),R.raw.crunch);
         seekBar=root.findViewById(R.id.seekBar);
         seekBar.setClickable(false);
         AddSeekBarChangeListener();
@@ -100,7 +100,7 @@ public class deliverworkFragment extends Fragment implements View.OnClickListene
                 ChangeFragment(new deliverworkFragment2());
                 break;
             case R.id.btn_next:
-
+                ChangeFragment(new deliverworkFragment3());
                 break;
         }
     }
