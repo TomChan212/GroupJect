@@ -1,5 +1,7 @@
 package pk.name.myapplication;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,7 +20,12 @@ public class deliverworkFragment2 extends Fragment implements View.OnClickListen
     private FragmentDeliverwork2Binding binding;
 
     Button btn_w1, btn_w2,btn_w3,btn_menu;
-    TextView tv_day;
+    TextView tv_day,tv_plan;
+    private float bmi;
+
+    SharedPreferences sharedPreferences;
+    public static final String mypregerence = "mypref";
+    public static final String BMI = "BMIkey";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -35,9 +42,26 @@ public class deliverworkFragment2 extends Fragment implements View.OnClickListen
         btn_menu=root.findViewById(R.id.menu);
         btn_menu.setOnClickListener(this);
         tv_day=root.findViewById(R.id.test);
+        tv_plan=root.findViewById(R.id.showPlan);
 
+        sharedPreferences = getActivity().getSharedPreferences(mypregerence, Context.MODE_PRIVATE);
+
+        bmi = Float.valueOf(sharedPreferences.getString(BMI,"10"));
+
+
+        showPlan();
 
         return root;
+    }
+
+    public void showPlan(){
+        if (bmi<18.5) {
+            tv_plan.setText("Plan: Fitness Plan 1");
+        }else if (bmi<25){
+            tv_plan.setText("Plan: Fitness Plan 2");
+            }else {
+            tv_plan.setText("Plan: Fitness Plan 3");
+        }
     }
 
     @Override

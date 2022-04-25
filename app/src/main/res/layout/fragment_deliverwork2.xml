@@ -32,6 +32,17 @@
             tools:layout_editor_absoluteX="69dp"
             tools:layout_editor_absoluteY="284dp" />
 
+        <TextView
+            android:id="@+id/showPlan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Plan"
+            android:textSize="24dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/test"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="192dp" />
+
         <Button
             android:id="@+id/wButton1"
             android:layout_width="wrap_content"
