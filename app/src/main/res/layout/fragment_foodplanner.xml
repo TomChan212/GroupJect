@@ -61,87 +61,99 @@
             android:id="@+id/tv_fp_day"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="8dp"
             android:text="1/7"
             android:textColor="@color/black"
             android:textSize="17sp"
-            app:layout_constraintBottom_toTopOf="@id/ll"
+            app:layout_constraintBottom_toTopOf="@id/fl"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/textView" />
 
-        <LinearLayout
-            android:id="@+id/ll"
+        <FrameLayout
+            android:id="@+id/fl"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:background="#99FFFFFF"
-            android:orientation="vertical"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textView">
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/btn_fp_back"
+            app:layout_constraintTop_toBottomOf="@+id/textView"
+            app:layout_constraintVertical_bias="0.0">
 
-            <TextView
-                android:id="@+id/tv_fp_breakfast"
-                android:layout_width="wrap_content"
+            <ScrollView
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:text="Breakfast:"
-                android:textColor="@color/black" />
+                android:layout_margin="10dp">
 
-            <TextView
-                android:id="@+id/tv_fp_breakfast2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="40dp"
-                android:layout_marginTop="10dp"
-                android:text="TextView"
-                android:textColor="@color/black" />
+                <LinearLayout
+                    android:id="@+id/ll"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#99FFFFFF"
+                    android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/btn_fp_lunch"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="30dp"
-                android:text="Lunch:"
-                android:textColor="@color/black" />
+                    <TextView
+                        android:id="@+id/tv_fp_breakfast"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:text="Breakfast:"
+                        android:textColor="@color/black" />
 
-            <TextView
-                android:id="@+id/btn_fp_lunch2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="40dp"
-                android:layout_marginTop="10dp"
-                android:text="TextView"
-                android:textColor="@color/black" />
+                    <TextView
+                        android:id="@+id/tv_fp_breakfast2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="40dp"
+                        android:layout_marginTop="10dp"
+                        android:text="TextView"
+                        android:textColor="@color/black" />
 
-            <TextView
-                android:id="@+id/tv_fp_dinner"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="30dp"
-                android:text="Dinner:"
-                android:textColor="@color/black" />
+                    <TextView
+                        android:id="@+id/btn_fp_lunch"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="10dp"
+                        android:text="Lunch:"
+                        android:textColor="@color/black" />
 
-            <TextView
-                android:id="@+id/tv_fp_dinner2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="40dp"
-                android:layout_marginTop="10dp"
-                android:text="TextView"
-                android:textColor="@color/black" />
+                    <TextView
+                        android:id="@+id/btn_fp_lunch2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="40dp"
+                        android:layout_marginTop="10dp"
+                        android:text="TextView"
+                        android:textColor="@color/black" />
 
-            <TextView
-                android:id="@+id/tv_fp_suggest"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="30dp"
-                android:text="Suggested calories today :"
-                android:textColor="@color/black" />
+                    <TextView
+                        android:id="@+id/tv_fp_dinner"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="10dp"
+                        android:text="Dinner:"
+                        android:textColor="@color/black" />
 
-        </LinearLayout>
+                    <TextView
+                        android:id="@+id/tv_fp_dinner2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="40dp"
+                        android:layout_marginTop="10dp"
+                        android:text="TextView"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/tv_fp_suggest"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="10dp"
+                        android:text="Suggested calories today :"
+                        android:textColor="@color/black" />
+
+                </LinearLayout>
+            </ScrollView>
+        </FrameLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
