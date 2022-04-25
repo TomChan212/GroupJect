@@ -4,7 +4,6 @@ import android.graphics.PixelFormat;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -25,7 +24,7 @@ import pk.name.myapplication.databinding.FragmentHomeBinding;
 public class deliverworkFragment extends Fragment implements View.OnClickListener{
     private FragmentDeliverworkBinding binding;
 
-    Button btn_done, btn_back, btn_title,btn_play;
+    Button btn_next, btn_back, btn_title,btn_play;
     MediaPlayer mediaPlayer;
     SurfaceView sv;
     SeekBar seekBar;
@@ -53,11 +52,11 @@ public class deliverworkFragment extends Fragment implements View.OnClickListene
 
         tv_day=root.findViewById(R.id.test);
 
-        btn_done=root.findViewById(R.id.done);
+        btn_next=root.findViewById(R.id.btn_next);
         btn_back=root.findViewById(R.id.back);
         btn_title=root.findViewById(R.id.title);
 
-        btn_done.setOnClickListener(this);
+        btn_next.setOnClickListener(this);
         btn_back.setOnClickListener(this);
 
         return root;
@@ -100,10 +99,8 @@ public class deliverworkFragment extends Fragment implements View.OnClickListene
             case R.id.back:
                 ChangeFragment(new deliverworkFragment2());
                 break;
-            case R.id.done:
-                tv_day.setText("Day: "+dayCounter()+"/7");
-                //ChangeFragment(new progressFragment());
-                //code of passing the data of variable "day" to be entered
+            case R.id.btn_next:
+
                 break;
         }
     }
