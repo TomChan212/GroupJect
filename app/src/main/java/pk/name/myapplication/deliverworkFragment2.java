@@ -45,9 +45,7 @@ public class deliverworkFragment2 extends Fragment implements View.OnClickListen
         tv_plan=root.findViewById(R.id.showPlan);
 
         sharedPreferences = getActivity().getSharedPreferences(mypregerence, Context.MODE_PRIVATE);
-
         bmi = Float.valueOf(sharedPreferences.getString(BMI,"10"));
-
 
         showPlan();
 

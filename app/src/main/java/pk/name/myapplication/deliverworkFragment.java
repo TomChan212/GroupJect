@@ -1,5 +1,7 @@
 package pk.name.myapplication;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.PixelFormat;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -28,9 +30,14 @@ public class deliverworkFragment extends Fragment implements View.OnClickListene
     MediaPlayer mediaPlayer;
     SurfaceView sv;
     SeekBar seekBar;
-    TextView tv_day;
+    TextView tv_day, tv_group;
     int[] raw_index={R.raw.crunch};
     int day=1;
+    float bmi;
+
+    SharedPreferences sharedPreferences;
+    public static final String mypregerence = "mypref";
+    public static final String BMI = "BMIkey";
 
 
     @Override
@@ -59,7 +66,22 @@ public class deliverworkFragment extends Fragment implements View.OnClickListene
         btn_next.setOnClickListener(this);
         btn_back.setOnClickListener(this);
 
+        tv_group=root.findViewById(R.id.note);
+        sharedPreferences = getActivity().getSharedPreferences(mypregerence, Context.MODE_PRIVATE);
+        bmi = Float.valueOf(sharedPreferences.getString(BMI,"10"));
+        showGroup();
+
         return root;
+    }
+
+    public void showGroup(){
+        if (bmi<18.5) {
+            tv_group.setText("Groups of 5 (2 groups)");
+        }else if (bmi<25){
+            tv_group.setText("Groups of 10 (5 groups)");
+        }else {
+            tv_group.setText("Groups of 20 (10 groups)");
+        }
     }
 
     public void play(){
