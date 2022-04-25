@@ -236,7 +236,7 @@ public class foodplannerFragment extends Fragment implements View.OnTouchListene
         }
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-        builder.setCancelable(false)
+        builder.setCancelable(true)
         .setNegativeButton("ok", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
