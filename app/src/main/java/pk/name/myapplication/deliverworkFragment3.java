@@ -32,12 +32,13 @@ public class deliverworkFragment3 extends Fragment implements View.OnClickListen
     SeekBar seekBar;
     TextView tv_day,tv_group;
     int[] raw_index={R.raw.pushup};
-    int day=1;
+    int day;
     float bmi;
 
     SharedPreferences sharedPreferences;
     public static final String mypregerence = "mypref";
     public static final String BMI = "BMIkey";
+    public static final String sday = "sdayKey";
 
 
     @Override
@@ -69,6 +70,7 @@ public class deliverworkFragment3 extends Fragment implements View.OnClickListen
         tv_group=root.findViewById(R.id.note);
         sharedPreferences = getActivity().getSharedPreferences(mypregerence, Context.MODE_PRIVATE);
         bmi = Float.valueOf(sharedPreferences.getString(BMI,"10"));
+        tv_day.setText(String.valueOf(day)+"/7");
         showGroup();
 
         return root;
@@ -127,14 +129,7 @@ public class deliverworkFragment3 extends Fragment implements View.OnClickListen
         }
     }
 
-    private int dayCounter(){
-        if (day<7){
-            day+=1;
-        } else {
-            day=1;
-        }
-        return day;
-    }
+
 
 
     private void ChangeFragment(Fragment fragment) {

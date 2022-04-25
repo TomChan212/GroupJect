@@ -1,5 +1,7 @@
 package pk.name.myapplication;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.PixelFormat;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -17,12 +19,17 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import pk.name.myapplication.databinding.FragmentDeliverwork4Binding;
 import pk.name.myapplication.databinding.FragmentDeliverworkBinding;
 import pk.name.myapplication.databinding.FragmentHomeBinding;
 
 
 public class deliverworkFragment extends Fragment implements View.OnClickListener{
     private FragmentDeliverworkBinding binding;
+    private FragmentDeliverwork4Binding binding;
+    SharedPreferences sharedPreferences;
+    public static final String sday = "sdayKey";
+    public static final String mypref = "mypref";
 
     Button btn_next, btn_back, btn_title,btn_play;
     MediaPlayer mediaPlayer;
@@ -30,7 +37,7 @@ public class deliverworkFragment extends Fragment implements View.OnClickListene
     SeekBar seekBar;
     TextView tv_day;
     int[] raw_index={R.raw.video1};
-    int day=1;
+    int day;
 
 
     @Override
@@ -40,24 +47,26 @@ public class deliverworkFragment extends Fragment implements View.OnClickListene
         View root = binding.getRoot();
         // Inflate the layout for this fragment
 
-
-        btn_play=root.findViewById(R.id.btn_play);
+        sharedPreferences = getActivity().getSharedPreferences(mypref, Context.MODE_PRIVATE);
+        btn_play = root.findViewById(R.id.btn_play);
         btn_play.setOnClickListener(this);
         sv = root.findViewById(R.id.surfaceView);
-        mediaPlayer=MediaPlayer.create(getActivity(),R.raw.video1);
-        seekBar=root.findViewById(R.id.seekBar);
+        mediaPlayer = MediaPlayer.create(getActivity(), R.raw.video1);
+        seekBar = root.findViewById(R.id.seekBar);
         seekBar.setClickable(false);
         AddSeekBarChangeListener();
 
+        day = sharedPreferences.getInt(sday, 1);
+        tv_day = root.findViewById(R.id.tv_day);
+        tv_day.setText(String.valueOf(day) + "/7");
 
-        tv_day=root.findViewById(R.id.test);
-
-        btn_next=root.findViewById(R.id.btn_next);
-        btn_back=root.findViewById(R.id.back);
-        btn_title=root.findViewById(R.id.title);
+        btn_next = root.findViewById(R.id.btn_done);
+        btn_back = root.findViewById(R.id.back);
+        btn_title = root.findViewById(R.id.title);
 
         btn_next.setOnClickListener(this);
         btn_back.setOnClickListener(this);
+
 
         return root;
     }
@@ -100,7 +109,7 @@ public class deliverworkFragment extends Fragment implements View.OnClickListene
                 ChangeFragment(new deliverworkFragment2());
                 break;
             case R.id.btn_next:
-
+                ChangeFragment(new deliverworkFragment3());
                 break;
         }
     }
