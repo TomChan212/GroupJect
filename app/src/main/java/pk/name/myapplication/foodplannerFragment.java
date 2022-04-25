@@ -25,7 +25,7 @@ import pk.name.myapplication.databinding.FragmentHomeBinding;
 public class foodplannerFragment extends Fragment implements View.OnTouchListener {
     private FragmentFoodplannerBinding binding;
 
-    private Button btn_title,btn_done;
+    private Button btn_title,btn_done,btn_back;
     private TextView tv_day,tv_breakfast,tv_breakfast2,tv_lunch,tv_lunch2,tv_dinner,tv_dinner2,tv_suggest;
     private int day;
     private float bmi;
@@ -42,6 +42,7 @@ public class foodplannerFragment extends Fragment implements View.OnTouchListene
         View root = binding.getRoot();
 
         btn_done = root.findViewById(R.id.btn_fp_done);
+        btn_back = root.findViewById(R.id.btn_fp_back);
         btn_title = root.findViewById(R.id.btn_fp_title);
         tv_day = root.findViewById(R.id.tv_fp_day);
         tv_breakfast = root.findViewById(R.id.tv_fp_breakfast);
@@ -68,6 +69,15 @@ public class foodplannerFragment extends Fragment implements View.OnTouchListene
             public void onClick(View view) {
                 changeDay();
 
+                FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.flFragment, new menuFragment());
+                fragmentTransaction.commit();
+            }
+        });
+
+        btn_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
                 FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.flFragment, new menuFragment());
                 fragmentTransaction.commit();

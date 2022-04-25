@@ -18,11 +18,23 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="20dp"
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="10dp"
             android:backgroundTint="#000000"
             android:text="DONE"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
+
+        <Button
+            android:id="@+id/btn_fp_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="#000000"
+            android:text="BACK"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <Button
             android:id="@+id/btn_fp_title"
@@ -38,8 +50,6 @@
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:background="#99FFFFFF"
             android:text="Food of today:"
             android:textColor="@color/black"
             android:textSize="34sp"
@@ -51,20 +61,22 @@
             android:id="@+id/tv_fp_day"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
-            android:background="#99FFFFFF"
+            android:layout_marginBottom="16dp"
             android:text="1/7"
             android:textColor="@color/black"
             android:textSize="17sp"
+            app:layout_constraintBottom_toTopOf="@id/ll"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/textView"
-            app:layout_constraintTop_toBottomOf="@id/btn_fp_title" />
+            app:layout_constraintStart_toEndOf="@id/textView" />
 
         <LinearLayout
+            android:id="@+id/ll"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_margin="10dp"
+            android:background="#99FFFFFF"
             android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/textView">
 
             <TextView
@@ -72,7 +84,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:background="#99FFFFFF"
                 android:text="Breakfast:"
                 android:textColor="@color/black" />
 
@@ -81,8 +92,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="40dp"
-                android:layout_marginTop="30dp"
-                android:background="#99FFFFFF"
+                android:layout_marginTop="10dp"
                 android:text="TextView"
                 android:textColor="@color/black" />
 
@@ -92,7 +102,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="30dp"
-                android:background="#99FFFFFF"
                 android:text="Lunch:"
                 android:textColor="@color/black" />
 
@@ -101,8 +110,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="40dp"
-                android:layout_marginTop="30dp"
-                android:background="#99FFFFFF"
+                android:layout_marginTop="10dp"
                 android:text="TextView"
                 android:textColor="@color/black" />
 
@@ -112,7 +120,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="30dp"
-                android:background="#99FFFFFF"
                 android:text="Dinner:"
                 android:textColor="@color/black" />
 
@@ -121,8 +128,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="40dp"
-                android:layout_marginTop="30dp"
-                android:background="#99FFFFFF"
+                android:layout_marginTop="10dp"
                 android:text="TextView"
                 android:textColor="@color/black" />
 
@@ -132,7 +138,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="30dp"
-                android:background="#99FFFFFF"
                 android:text="Suggested calories today :"
                 android:textColor="@color/black" />
 
