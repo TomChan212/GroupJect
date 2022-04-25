@@ -72,11 +72,11 @@ public class deliverworkFragment2 extends Fragment implements View.OnClickListen
                 //code for pass data to be entered
                 break;
             case R.id.wButton2:
-                ChangeFragment(new deliverworkFragment());
+                ChangeFragment(new deliverworkFragment3());
                 //code for pass data to be entered
                 break;
             case R.id.wButton3:
-                ChangeFragment(new deliverworkFragment());
+                ChangeFragment(new deliverworkFragment4());
                 //code for pass data to be entered
                 break;
             case R.id.menu:
