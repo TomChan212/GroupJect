@@ -58,7 +58,6 @@ public class deliverworkFragment extends Fragment implements View.OnClickListene
 
         day = sharedPreferences.getInt(sday, 1);
         tv_day = root.findViewById(R.id.tv_day);
-        tv_day.setText(String.valueOf(day) + "/7");
 
         btn_done = root.findViewById(R.id.btn_done);
         btn_back = root.findViewById(R.id.back);
