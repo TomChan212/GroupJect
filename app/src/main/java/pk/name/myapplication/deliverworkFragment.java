@@ -26,7 +26,6 @@ import pk.name.myapplication.databinding.FragmentHomeBinding;
 
 public class deliverworkFragment extends Fragment implements View.OnClickListener{
     private FragmentDeliverworkBinding binding;
-    private FragmentDeliverwork4Binding binding;
     SharedPreferences sharedPreferences;
     public static final String sday = "sdayKey";
     public static final String mypref = "mypref";
@@ -36,7 +35,7 @@ public class deliverworkFragment extends Fragment implements View.OnClickListene
     SurfaceView sv;
     SeekBar seekBar;
     TextView tv_day;
-    int[] raw_index={R.raw.video1};
+    int[] raw_index={R.raw.crunch};
     int day;
 
 
@@ -51,7 +50,7 @@ public class deliverworkFragment extends Fragment implements View.OnClickListene
         btn_play = root.findViewById(R.id.btn_play);
         btn_play.setOnClickListener(this);
         sv = root.findViewById(R.id.surfaceView);
-        mediaPlayer = MediaPlayer.create(getActivity(), R.raw.video1);
+        mediaPlayer = MediaPlayer.create(getActivity(), R.raw.crunch);
         seekBar = root.findViewById(R.id.seekBar);
         seekBar.setClickable(false);
         AddSeekBarChangeListener();
