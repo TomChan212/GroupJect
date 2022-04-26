@@ -30,14 +30,16 @@ public class deliverworkFragment extends Fragment implements View.OnClickListene
     public static final String sday = "sdayKey";
     public static final String mypref = "mypref";
     public static final String work1 = "work1Key";
+    public static final String BMI = "BMIkey";
 
     Button btn_done, btn_back, btn_title,btn_play;
     MediaPlayer mediaPlayer;
     SurfaceView sv;
     SeekBar seekBar;
-    TextView tv_day;
+    TextView tv_day,tv_group;
     int[] raw_index={R.raw.crunch};
     int day;
+    float bmi;
 
 
     @Override
@@ -58,14 +60,30 @@ public class deliverworkFragment extends Fragment implements View.OnClickListene
 
         day = sharedPreferences.getInt(sday, 1);
         tv_day = root.findViewById(R.id.tv_day);
+        tv_group=root.findViewById(R.id.note);
 
-        btn_done = root.findViewById(R.id.btn_done);
+        btn_done = root.findViewById(R.id.btn_next);
         btn_back = root.findViewById(R.id.back);
         btn_title = root.findViewById(R.id.title);
 
         btn_done.setOnClickListener(this);
         btn_back.setOnClickListener(this);
+        tv_group=root.findViewById(R.id.note);
+        sharedPreferences = getActivity().getSharedPreferences(mypref, Context.MODE_PRIVATE);
+        bmi = Float.valueOf(sharedPreferences.getString(BMI,"10"));
+        showGroup();
+
         return root;
+    }
+
+    public void showGroup(){
+        if (bmi<18.5) {
+            tv_group.setText("Groups of 5 (2 groups)");
+        }else if (bmi<25){
+            tv_group.setText("Groups of 10 (5 groups)");
+        }else {
+            tv_group.setText("Groups of 20 (10 groups)");
+        }
     }
 
     public void play(){
@@ -105,7 +123,7 @@ public class deliverworkFragment extends Fragment implements View.OnClickListene
             case R.id.back:
                 ChangeFragment(new deliverworkFragment2());
                 break;
-            case R.id.btn_done:
+            case R.id.btn_next:
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.putBoolean(work1,true).commit();
                 ChangeFragment(new deliverworkFragment3());
