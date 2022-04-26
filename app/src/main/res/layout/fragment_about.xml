@@ -196,7 +196,7 @@
 
         <ImageView
             android:id="@+id/white1"
-            android:layout_width="365dp"
+            android:layout_width="352dp"
             android:layout_height="46dp"
             android:layout_marginTop="176dp"
             android:alpha="0.6"
@@ -209,50 +209,53 @@
 
         <ImageView
             android:id="@+id/white2"
-            android:layout_width="345dp"
+            android:layout_width="336dp"
+            android:layout_height="39dp"
+            android:layout_marginTop="28dp"
+            android:alpha="0.6"
+            android:src="@android:drawable/screen_background_light"
+            android:translationZ="1dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.506"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/white1" />
+
+        <ImageView
+            android:id="@+id/white4"
+            android:layout_width="357dp"
+            android:layout_height="41dp"
+            android:layout_marginTop="44dp"
+            android:alpha="0.6"
+            android:src="@android:drawable/screen_background_light"
+            android:translationZ="1dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.481"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/white3" />
+
+        <ImageView
+            android:id="@+id/white3"
+            android:layout_width="366dp"
             android:layout_height="46dp"
             android:layout_marginTop="32dp"
             android:alpha="0.6"
             android:src="@android:drawable/screen_background_light"
             android:translationZ="1dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/white1" />
-
-        <ImageView
-            android:id="@+id/white4"
-            android:layout_width="365dp"
-            android:layout_height="48dp"
-            android:layout_marginTop="40dp"
-            android:alpha="0.6"
-            android:src="@android:drawable/screen_background_light"
-            android:translationZ="1dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/white3" />
-
-        <ImageView
-            android:id="@+id/white3"
-            android:layout_width="363dp"
-            android:layout_height="51dp"
-            android:layout_marginTop="25dp"
-            android:alpha="0.6"
-            android:src="@android:drawable/screen_background_light"
-            android:translationZ="1dp"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.488"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/white2" />
 
         <ImageView
             android:id="@+id/white5"
-            android:layout_width="164dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="24dp"
+            android:layout_width="130dp"
+            android:layout_height="43dp"
+            android:layout_marginTop="36dp"
             android:alpha="0.6"
             android:src="@android:drawable/screen_background_light"
             android:translationZ="1dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.133"
+            app:layout_constraintHorizontal_bias="0.135"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/white4" />
     </androidx.constraintlayout.widget.ConstraintLayout>

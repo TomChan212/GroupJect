@@ -1,14 +1,166 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".planFragment">
+    android:background="@drawable/gym2"
+    tools:context=".planFragment" >
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="match_parent">
 
+        <Button
+            android:id="@+id/plan_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="96dp"
+            android:backgroundTint="#000000"
+            android:text="Plan Editor"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/mid_btn"
+            android:layout_width="164dp"
+            android:layout_height="127dp"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="#000000"
+            android:text="Mild Plan"
+            app:layout_constraintEnd_toEndOf="@+id/white10"
+            app:layout_constraintHorizontal_bias="0.28"
+            app:layout_constraintStart_toStartOf="@+id/tv_plan2"
+            app:layout_constraintTop_toBottomOf="@+id/tv_plan2" />
+
+        <TextView
+            android:id="@+id/tv_plan"
+            android:layout_width="285dp"
+            android:layout_height="29dp"
+            android:layout_marginStart="64dp"
+            android:layout_marginTop="48dp"
+            android:text="You can decide your own plan!"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:translationZ="2dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/plan_btn" />
+
+        <ImageView
+            android:id="@+id/white"
+            android:layout_width="288dp"
+            android:layout_height="43dp"
+            android:layout_marginTop="180dp"
+            android:alpha="0.6"
+            android:src="@android:drawable/screen_background_light"
+            android:translationZ="1dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_plan2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="52dp"
+            android:text="Mild Plan"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:translationZ="2dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_plan" />
+
+        <ImageView
+            android:id="@+id/white10"
+            android:layout_width="108dp"
+            android:layout_height="31dp"
+            android:layout_marginTop="272dp"
+            android:alpha="0.6"
+            android:src="@android:drawable/screen_background_light"
+            android:translationZ="1dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.077"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/mid_btn2"
+            android:layout_width="164dp"
+            android:layout_height="127dp"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="#000000"
+            android:text="Moderate Plan"
+            app:layout_constraintEnd_toEndOf="@+id/tv_plan3"
+            app:layout_constraintStart_toStartOf="@+id/white11"
+            app:layout_constraintTop_toBottomOf="@+id/tv_plan3" />
+
+        <Button
+            android:id="@+id/mid_btn3"
+            android:layout_width="164dp"
+            android:layout_height="127dp"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="#000000"
+            android:text="Vigorous Plan"
+            app:layout_constraintEnd_toEndOf="@+id/tv_plan4"
+            app:layout_constraintHorizontal_bias="0.486"
+            app:layout_constraintStart_toStartOf="@+id/tv_plan4"
+            app:layout_constraintTop_toBottomOf="@+id/tv_plan4" />
+
+        <TextView
+            android:id="@+id/tv_plan3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="52dp"
+            android:text="Moderate Plan"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:translationZ="2dp"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_plan2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_plan2"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <ImageView
+            android:id="@+id/white11"
+            android:layout_width="136dp"
+            android:layout_height="33dp"
+            android:layout_marginTop="272dp"
+            android:alpha="0.6"
+            android:src="@android:drawable/screen_background_light"
+            android:translationZ="1dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.825"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_plan4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Vigorous Plan"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:translationZ="2dp"
+            app:layout_constraintEnd_toEndOf="@+id/mid_btn"
+            app:layout_constraintHorizontal_bias="0.486"
+            app:layout_constraintStart_toStartOf="@+id/mid_btn"
+            app:layout_constraintTop_toBottomOf="@+id/mid_btn" />
+
+        <ImageView
+            android:id="@+id/white12"
+            android:layout_width="142dp"
+            android:layout_height="33dp"
+            android:layout_marginTop="468dp"
+            android:alpha="0.6"
+            android:src="@android:drawable/screen_background_light"
+            android:translationZ="1dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.089"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
