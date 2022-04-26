@@ -8,6 +8,7 @@
     android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".MainActivity">
@@ -41,6 +42,20 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/btn_help"
+                android:layout_width="57dp"
+                android:layout_height="52dp"
+                android:layout_marginEnd="28dp"
+                android:background="@drawable/roundstyle"
+                android:drawableTop="@drawable/ic_help_2"
+                android:gravity="center|bottom"
+                android:text="@string/help"
+                android:textAlignment="center"
+                app:layout_constraintBottom_toBottomOf="@+id/toolbar"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/toolbar" />
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"

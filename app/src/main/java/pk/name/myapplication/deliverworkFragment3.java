@@ -9,6 +9,7 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
@@ -27,7 +28,7 @@ public class deliverworkFragment3 extends Fragment implements View.OnClickListen
     private FragmentDeliverwork3Binding binding;
 
 
-    Button btn_next, btn_back, btn_title,btn_play;
+    Button btn_next, btn_back, btn_title,btn_play,btn_pause;
     MediaPlayer mediaPlayer;
     SurfaceView sv;
     SeekBar seekBar;
@@ -53,6 +54,8 @@ public class deliverworkFragment3 extends Fragment implements View.OnClickListen
 
         btn_play=root.findViewById(R.id.btn_play);
         btn_play.setOnClickListener(this);
+        btn_pause=root.findViewById(R.id.pause);
+        btn_pause.setOnClickListener(this);
         sv = root.findViewById(R.id.surfaceView);
         mediaPlayer=MediaPlayer.create(getActivity(),R.raw.pushup);
         seekBar=root.findViewById(R.id.seekBar);
@@ -100,6 +103,17 @@ public class deliverworkFragment3 extends Fragment implements View.OnClickListen
         }
     }
 
+    public void pause() {
+        try{
+            if(mediaPlayer.isPlaying()){
+                mediaPlayer.pause();
+            }
+        }
+        catch (Exception e) {
+            Toast.makeText(getActivity().getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
+        }
+    }
+
     public void AddSeekBarChangeListener() {
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
@@ -115,11 +129,27 @@ public class deliverworkFragment3 extends Fragment implements View.OnClickListen
             }
         });
     }
+
+    public void init_SeekBar(){
+        Handler handler=new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                seekBar.setProgress(mediaPlayer.getCurrentPosition());
+                handler.postDelayed(this,1000);
+            }
+        },0);
+    }
+
     @Override
     public void onClick(View view) {
         switch(view.getId()){
             case R.id.btn_play:
                 play();
+                init_SeekBar();
+                break;
+            case R.id.pause:
+                pause();
                 break;
             case R.id.back:
                 ChangeFragment(new deliverworkFragment2());
