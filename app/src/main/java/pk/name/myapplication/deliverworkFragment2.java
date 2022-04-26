@@ -63,8 +63,23 @@ public class deliverworkFragment2 extends Fragment implements View.OnClickListen
         workThree = sharedPreferences.getBoolean(work3, false);
 
         if( workOne == true){
-
+            checkbox1.setImageResource(R.drawable.ic_baseline_check_box_24);
         }
+        if( workTwo == true){
+            checkbox2.setImageResource(R.drawable.ic_baseline_check_box_24);
+        }
+        if( workThree == true){
+            checkbox3.setImageResource(R.drawable.ic_baseline_check_box_24);
+        }
+
+        if(workOne != true){
+            btn_w2.setEnabled(false);
+        }
+        if(workOne != true || workTwo != true){
+            btn_w3.setEnabled(false);
+        }
+
+
 
 
 
