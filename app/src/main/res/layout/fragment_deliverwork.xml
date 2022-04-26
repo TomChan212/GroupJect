@@ -23,14 +23,15 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/tv_day"
+            android:id="@+id/test"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="36dp"
+            android:layout_marginStart="148dp"
+            android:layout_marginTop="32dp"
             android:text="Workout 1"
             android:textSize="24dp"
+            android:textStyle="bold"
             android:translationZ="2dp"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/title" />
 
@@ -40,9 +41,9 @@
             android:layout_height="wrap_content"
             android:text="Groups of x (y groups)"
             android:textSize="24dp"
+            android:textStyle="bold"
             android:translationZ="2dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.578"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/test" />
 
@@ -54,7 +55,7 @@
             android:layout_weight="1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_day" />
+            app:layout_constraintTop_toBottomOf="@+id/test" />
 
         <Button
             android:id="@+id/btn_play"
@@ -69,14 +70,14 @@
             app:layout_constraintTop_toBottomOf="@+id/seekBar" />
 
         <Button
-            android:id="@+id/btn_done"
+            android:id="@+id/btn_next"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="300dp"
             android:layout_marginTop="8dp"
             android:layout_weight="1"
             android:backgroundTint="#000000"
-            android:text="next"
+            android:text="Next"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/seekBar" />
 
@@ -101,15 +102,15 @@
             app:layout_constraintEnd_toEndOf="parent" />
 
         <ImageView
-            android:id="@+id/white7"
-            android:layout_width="170dp"
-            android:layout_height="38dp"
-            android:layout_marginTop="180dp"
+            android:id="@+id/white8"
+            android:layout_width="364dp"
+            android:layout_height="75dp"
+            android:layout_marginTop="176dp"
             android:alpha="0.6"
             android:src="@android:drawable/screen_background_light"
             android:translationZ="1dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintHorizontal_bias="0.575"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
