@@ -27,6 +27,8 @@ public class deliverworkFragment2 extends Fragment implements View.OnClickListen
     private boolean workOne;
     private boolean workTwo;
     private boolean workThree;
+    int day;
+
 
     SharedPreferences sharedPreferences;
     public static final String mypref = "mypref";
@@ -34,6 +36,7 @@ public class deliverworkFragment2 extends Fragment implements View.OnClickListen
     public static final String work1 = "work1Key";
     public static final String work2 = "work2Key";
     public static final String work3 = "work3Key";
+    public static final String sday = "sdayKey";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -49,7 +52,7 @@ public class deliverworkFragment2 extends Fragment implements View.OnClickListen
         btn_w3.setOnClickListener(this);
         btn_menu=root.findViewById(R.id.menu);
         btn_menu.setOnClickListener(this);
-        tv_day=root.findViewById(R.id.test);
+        tv_day=root.findViewById(R.id.tv_day);
         tv_plan=root.findViewById(R.id.showPlan);
         checkbox1 = root.findViewById(R.id.checkbox1);
         checkbox2 = root.findViewById(R.id.checkbox2);
@@ -61,6 +64,8 @@ public class deliverworkFragment2 extends Fragment implements View.OnClickListen
         workOne = sharedPreferences.getBoolean(work1, false);
         workTwo = sharedPreferences.getBoolean(work2, false);
         workThree = sharedPreferences.getBoolean(work3, false);
+        day = sharedPreferences.getInt(sday,1);
+
 
         if( workOne == true){
             checkbox1.setImageResource(R.drawable.ic_baseline_check_box_24);
@@ -79,24 +84,19 @@ public class deliverworkFragment2 extends Fragment implements View.OnClickListen
             btn_w3.setEnabled(false);
         }
 
-
-
-
-
-
-
         showPlan();
 
         return root;
     }
 
     public void showPlan(){
+        tv_day.setText("Day "+String.valueOf(day)+"/7");
         if (bmi<18.5) {
-            tv_plan.setText("Plan: Fitness Plan 1");
+            tv_plan.setText("Plan: Mild");
         }else if (bmi<25){
-            tv_plan.setText("Plan: Fitness Plan 2");
+            tv_plan.setText("Plan: Moderate");
             }else {
-            tv_plan.setText("Plan: Fitness Plan 3");
+            tv_plan.setText("Plan: Vigorous");
         }
     }
 

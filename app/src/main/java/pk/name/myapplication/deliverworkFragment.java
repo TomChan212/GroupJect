@@ -71,6 +71,7 @@ public class deliverworkFragment extends Fragment implements View.OnClickListene
         tv_group=root.findViewById(R.id.note);
         sharedPreferences = getActivity().getSharedPreferences(mypref, Context.MODE_PRIVATE);
         bmi = Float.valueOf(sharedPreferences.getString(BMI,"10"));
+
         showGroup();
 
         return root;
