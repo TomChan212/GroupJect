@@ -47,11 +47,11 @@
             android:id="@+id/wButton1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="280dp"
+            android:layout_marginTop="276dp"
             android:backgroundTint="#000000"
             android:text="Workout 1"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintHorizontal_bias="0.311"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -59,11 +59,11 @@
             android:id="@+id/wButton2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="32dp"
             android:backgroundTint="#000000"
             android:text="Workout 2"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintHorizontal_bias="0.311"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/wButton1" />
 
@@ -71,11 +71,11 @@
             android:id="@+id/wButton3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="32dp"
             android:backgroundTint="#000000"
             android:text="Workout 3"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintHorizontal_bias="0.311"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/wButton2" />
 
@@ -102,6 +102,36 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/checkbox1"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="276dp"
+            android:src="@drawable/ic_baseline_check_box_outline_blank_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/wButton1"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/checkbox2"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="40dp"
+            android:src="@drawable/ic_baseline_check_box_outline_blank_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/wButton2"
+            app:layout_constraintTop_toBottomOf="@+id/checkbox1" />
+
+        <ImageView
+            android:id="@+id/checkbox3"
+            android:layout_width="46dp"
+            android:layout_height="44dp"
+            android:layout_marginTop="40dp"
+            android:src="@drawable/ic_baseline_check_box_outline_blank_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/wButton3"
+            app:layout_constraintTop_toBottomOf="@+id/checkbox2" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
