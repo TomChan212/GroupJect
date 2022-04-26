@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
@@ -91,6 +92,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+
         uwork = findViewById(R.id.uwork_ic);
         uwork.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -98,6 +101,17 @@ public class MainActivity extends AppCompatActivity {
                     FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.flFragment, new menuFragment()).addToBackStack(null);
                     fragmentTransaction.commit();
+                return false;
+            }
+        });
+        Button help;
+        help = findViewById(R.id.btn_help);
+        help.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.flFragment, new helpFragment()).addToBackStack(null);
+                fragmentTransaction.commit();
                 return false;
             }
         });

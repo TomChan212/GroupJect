@@ -15,6 +15,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
+            <TextView
+                android:id="@+id/space"
+                android:layout_width="wrap_content"
+                android:layout_height="55dp"
+                android:layout_marginEnd="411dp"
+                android:layout_marginBottom="609dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
             <Button
                 android:id="@+id/btn_about"
                 android:layout_width="350dp"
@@ -26,6 +37,7 @@
                 android:gravity="center|bottom"
                 android:text="@string/about"
                 android:textAlignment="center"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/btn_foodplanner" />
 
@@ -79,7 +91,6 @@
                 android:layout_width="350dp"
                 android:layout_height="133dp"
                 android:layout_marginStart="32dp"
-                android:layout_marginTop="112dp"
                 android:layout_marginEnd="32dp"
                 android:alpha="1"
                 android:background="@drawable/roundstyle"
@@ -89,21 +100,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.333"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <Button
-                android:id="@+id/btn_help"
-                android:layout_width="83dp"
-                android:layout_height="53dp"
-                android:layout_marginTop="56dp"
-                android:layout_marginEnd="40dp"
-                android:background="@drawable/roundstyle"
-                android:drawableTop="@drawable/ic_help"
-                android:gravity="center|bottom"
-                android:text="@string/help"
-                android:textAlignment="center"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@+id/space" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
