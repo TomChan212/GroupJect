@@ -29,7 +29,7 @@ public class aboutFragment extends Fragment  implements  View.OnClickListener {
     EditText name_input, age_input, height_input, weight_input;
     TextView cal_bmi;
 
-    SharedPreferences shared_pref;
+    SharedPreferences sharedPreferences;
     public static final String mypref = "mypref";
     public static final String name = "mypref";
     public static final String age = "agekey";
@@ -55,10 +55,10 @@ public class aboutFragment extends Fragment  implements  View.OnClickListener {
         age_input = root.findViewById(R.id.age_input);
 
         cal_bmi = root.findViewById(R.id.cal_bmi);
-        shared_pref = getContext().getSharedPreferences(mypref, Context.MODE_PRIVATE);
+        sharedPreferences = getContext().getSharedPreferences(mypref, Context.MODE_PRIVATE);
 
-        if (shared_pref.contains(BMI)) {
-            cal_bmi.setText(shared_pref.getString(BMI, ""));
+        if (sharedPreferences.contains(BMI)) {
+            cal_bmi.setText(sharedPreferences.getString(BMI, ""));
         }
 
         return root;
@@ -74,7 +74,7 @@ public class aboutFragment extends Fragment  implements  View.OnClickListener {
                         height_input.getText().toString().isEmpty()) {
                         Toast.makeText(getContext().getApplicationContext(), "Make sure all your data is completed !!", Toast.LENGTH_LONG).show();
                     } else {
-                        SharedPreferences.Editor editor = shared_pref.edit();
+                        SharedPreferences.Editor editor = sharedPreferences.edit();
                         editor.putString(name, name_input.getText().toString());
                         editor.putString(age, age_input.getText().toString());
                         editor.putString(weight, weight_input.getText().toString());
@@ -97,7 +97,7 @@ public class aboutFragment extends Fragment  implements  View.OnClickListener {
         Double bmi_value = wei / ((hei / 100) * (hei / 100));
         String str_bmi = df.format(bmi_value).toString();
 
-        SharedPreferences.Editor editor = shared_pref.edit();
+        SharedPreferences.Editor editor = sharedPreferences.edit();
 
         editor.putString(BMI, str_bmi);
         cal_bmi.setText(str_bmi);

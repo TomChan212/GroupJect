@@ -31,7 +31,7 @@ public class foodplannerFragment extends Fragment implements View.OnTouchListene
     private float bmi;
 
     SharedPreferences sharedPreferences;
-    public static final String mypregerence = "mypref";
+    public static final String mypref = "mypref";
     public static final String sday = "sdayKey";
     public static final String BMI = "BMIkey";
 
@@ -53,7 +53,7 @@ public class foodplannerFragment extends Fragment implements View.OnTouchListene
         tv_dinner2 = root.findViewById(R.id.tv_fp_dinner2);
         tv_suggest = root.findViewById(R.id.tv_fp_suggest);
 
-        sharedPreferences = getActivity().getSharedPreferences(mypregerence, Context.MODE_PRIVATE);
+        sharedPreferences = getActivity().getSharedPreferences(mypref, Context.MODE_PRIVATE);
 
         day = sharedPreferences.getInt(sday,1);
         bmi = Float.valueOf(sharedPreferences.getString(BMI,"10"));
@@ -67,7 +67,6 @@ public class foodplannerFragment extends Fragment implements View.OnTouchListene
         btn_done.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                changeDay();
 
                 FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.flFragment, new menuFragment());
@@ -212,16 +211,6 @@ public class foodplannerFragment extends Fragment implements View.OnTouchListene
         }
     }
 
-    public void changeDay(){
-        if (day<7) {
-            day += 1;
-            sharedPreferences.edit().putInt(sday, day).commit();
-        }
-        else {
-            day = 1;
-            sharedPreferences.edit().putInt(sday, day).commit();
-        }
-    }
 
     @Override
     public boolean onTouch(View view, MotionEvent motionEvent) {

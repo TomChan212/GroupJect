@@ -22,7 +22,7 @@ import com.google.android.material.appbar.AppBarLayout;
 public class MainActivity extends AppCompatActivity {
     homeFragment homeFragment = new homeFragment();
 
-    SharedPreferences shared_pref;
+    SharedPreferences sharedPreferences;
     public static final String mypref = "mypref";
     public static final String name = "mypref";
     public static final String age = "agekey";
@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
         barLayout = findViewById(R.id.appbar);
         barLayout.setVisibility(View.GONE);
 
-        shared_pref = getApplicationContext().getSharedPreferences(mypref,
+        sharedPreferences = getApplicationContext().getSharedPreferences(mypref,
                 Context.MODE_PRIVATE);
 
         mlayout = (RelativeLayout) findViewById(R.id.mlayout);
@@ -67,12 +67,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 if (typed == false) {
-                    if (shared_pref.getString(name, "").isEmpty()||
-                        shared_pref.getString(weight, "").isEmpty()||
-                        shared_pref.getString(height, "").isEmpty()||
-                        shared_pref.getString(age, "").isEmpty()||
-                        shared_pref.getString(name, "").isEmpty()||
-                        shared_pref.getString(BMI, "").isEmpty())
+                    if (sharedPreferences.getString(name, "").isEmpty()||
+                            sharedPreferences.getString(weight, "").isEmpty()||
+                            sharedPreferences.getString(height, "").isEmpty()||
+                            sharedPreferences.getString(age, "").isEmpty()||
+                            sharedPreferences.getString(name, "").isEmpty()||
+                            sharedPreferences.getString(BMI, "").isEmpty())
                     {
                         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
                         fragmentTransaction.replace(R.id.flFragment, new aboutFragment()).addToBackStack(null);
