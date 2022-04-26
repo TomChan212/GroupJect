@@ -25,7 +25,7 @@
             android:textStyle="bold"
             android:translationZ="2dp"
             app:layout_constraintEnd_toEndOf="@+id/btn_aboutme"
-            app:layout_constraintHorizontal_bias="0.673"
+            app:layout_constraintHorizontal_bias="0.269"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btn_aboutme" />
 
@@ -33,7 +33,7 @@
             android:id="@+id/name_input"
             android:layout_width="247dp"
             android:layout_height="42dp"
-            android:layout_marginStart="4dp"
+            android:layout_marginStart="12dp"
             android:ems="10"
             android:hint="Please enter your name here"
             android:inputType="textPersonName"
@@ -42,7 +42,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/tv_name"
             app:layout_constraintStart_toEndOf="@+id/tv_name"
             app:layout_constraintTop_toTopOf="@+id/tv_name"
-            app:layout_constraintVertical_bias="0.3" />
+            app:layout_constraintVertical_bias="0.7" />
 
         <Button
             android:id="@+id/btn_aboutme"
@@ -65,53 +65,44 @@
             android:textSize="24sp"
             android:textStyle="bold"
             android:translationZ="2dp"
-            app:layout_constraintEnd_toEndOf="@+id/tv_name"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/tv_name"
-            app:layout_constraintTop_toBottomOf="@+id/tv_name" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_name"
+            tools:layout_editor_absoluteX="34dp" />
 
         <EditText
             android:id="@+id/age_input"
             android:layout_width="245dp"
             android:layout_height="45dp"
-            android:layout_marginStart="12dp"
+            android:layout_marginTop="32dp"
             android:ems="10"
             android:hint="Please enter your age here"
             android:inputType="number"
             android:translationZ="2dp"
-            app:layout_constraintBottom_toBottomOf="@+id/tv_age"
-            app:layout_constraintStart_toEndOf="@+id/tv_age"
-            app:layout_constraintTop_toTopOf="@+id/tv_age"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintTop_toBottomOf="@+id/name_input"
+            tools:layout_editor_absoluteX="123dp" />
 
         <TextView
             android:id="@+id/tv_height"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="48dp"
             android:text="Height :"
             android:textColor="#000000"
             android:textSize="24sp"
             android:textStyle="bold"
             android:translationZ="2dp"
-            app:layout_constraintEnd_toEndOf="@+id/tv_age"
-            app:layout_constraintHorizontal_bias="0.785"
-            app:layout_constraintStart_toStartOf="@+id/tv_age"
-            app:layout_constraintTop_toBottomOf="@+id/tv_age" />
+            tools:layout_editor_absoluteX="27dp"
+            tools:layout_editor_absoluteY="325dp" />
 
         <EditText
             android:id="@+id/height_input"
             android:layout_width="250dp"
             android:layout_height="50dp"
-            android:layout_marginStart="12dp"
+            android:layout_marginStart="8dp"
             android:ems="10"
             android:hint="Please enter your height here"
             android:inputType="number"
             android:translationZ="2dp"
-            app:layout_constraintBottom_toBottomOf="@+id/tv_height"
             app:layout_constraintStart_toEndOf="@+id/tv_height"
-            app:layout_constraintTop_toTopOf="@+id/tv_height"
-            app:layout_constraintVertical_bias="0.41000003" />
+            tools:layout_editor_absoluteY="318dp" />
 
         <TextView
             android:id="@+id/tv_weight"
@@ -133,14 +124,13 @@
             android:layout_width="254dp"
             android:layout_height="40dp"
             android:layout_marginStart="4dp"
+            android:layout_marginTop="44dp"
             android:ems="10"
             android:hint="Please enter your weight here"
             android:inputType="number"
             android:translationZ="2dp"
-            app:layout_constraintBottom_toBottomOf="@+id/tv_weight"
             app:layout_constraintStart_toEndOf="@+id/tv_weight"
-            app:layout_constraintTop_toTopOf="@+id/tv_weight"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintTop_toBottomOf="@+id/height_input" />
 
         <TextView
             android:id="@+id/tv_bmi"
@@ -203,15 +193,14 @@
             android:src="@android:drawable/screen_background_light"
             android:translationZ="1dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.575"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/white2"
-            android:layout_width="345dp"
+            android:layout_width="365dp"
             android:layout_height="46dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="28dp"
             android:alpha="0.6"
             android:src="@android:drawable/screen_background_light"
             android:translationZ="1dp"
@@ -222,7 +211,7 @@
         <ImageView
             android:id="@+id/white4"
             android:layout_width="365dp"
-            android:layout_height="48dp"
+            android:layout_height="46dp"
             android:layout_marginTop="40dp"
             android:alpha="0.6"
             android:src="@android:drawable/screen_background_light"
@@ -233,8 +222,8 @@
 
         <ImageView
             android:id="@+id/white3"
-            android:layout_width="363dp"
-            android:layout_height="51dp"
+            android:layout_width="365dp"
+            android:layout_height="46dp"
             android:layout_marginTop="25dp"
             android:alpha="0.6"
             android:src="@android:drawable/screen_background_light"
@@ -245,14 +234,14 @@
 
         <ImageView
             android:id="@+id/white5"
-            android:layout_width="164dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="24dp"
+            android:layout_width="200dp"
+            android:layout_height="46dp"
+            android:layout_marginTop="32dp"
             android:alpha="0.6"
             android:src="@android:drawable/screen_background_light"
             android:translationZ="1dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.133"
+            app:layout_constraintHorizontal_bias="0.093"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/white4" />
     </androidx.constraintlayout.widget.ConstraintLayout>
