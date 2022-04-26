@@ -29,6 +29,7 @@
             android:layout_marginTop="36dp"
             android:text="Workout 1"
             android:textSize="24dp"
+            android:translationZ="2dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/title" />
@@ -39,7 +40,9 @@
             android:layout_height="wrap_content"
             android:text="Groups of x (y groups)"
             android:textSize="24dp"
+            android:translationZ="2dp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.578"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/test" />
 
@@ -96,6 +99,19 @@
             android:text="Back"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
+
+        <ImageView
+            android:id="@+id/white7"
+            android:layout_width="170dp"
+            android:layout_height="38dp"
+            android:layout_marginTop="180dp"
+            android:alpha="0.6"
+            android:src="@android:drawable/screen_background_light"
+            android:translationZ="1dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
