@@ -26,6 +26,7 @@ import pk.name.myapplication.databinding.FragmentHomeBinding;
 public class deliverworkFragment3 extends Fragment implements View.OnClickListener{
     private FragmentDeliverwork3Binding binding;
 
+
     Button btn_next, btn_back, btn_title,btn_play;
     MediaPlayer mediaPlayer;
     SurfaceView sv;

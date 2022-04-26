@@ -29,14 +29,16 @@ public class deliverworkFragment4 extends Fragment implements View.OnClickListen
     public static final String mypref = "mypref";
     public static final String sday = "sdayKey";
     public static final String work3 = "work3Key";
+    public static final String BMI = "BMIkey";
 
     Button btn_next, btn_back, btn_title,btn_play;
     MediaPlayer mediaPlayer;
     SurfaceView sv;
     SeekBar seekBar;
-    TextView tv_day;
+    TextView tv_day,tv_group;
     int[] raw_index={R.raw.plank};
     int day;
+    float bmi;
 
 
     @Override
@@ -66,8 +68,22 @@ public class deliverworkFragment4 extends Fragment implements View.OnClickListen
         btn_next.setOnClickListener(this);
         btn_back.setOnClickListener(this);
 
+        tv_group=root.findViewById(R.id.note);
+        sharedPreferences = getActivity().getSharedPreferences(mypref, Context.MODE_PRIVATE);
+        bmi = Float.valueOf(sharedPreferences.getString(BMI,"10"));
+        showGroup();
 
         return root;
+    }
+
+    public void showGroup(){
+        if (bmi<18.5) {
+            tv_group.setText("Groups of 5 (2 groups)");
+        }else if (bmi<25){
+            tv_group.setText("Groups of 10 (5 groups)");
+        }else {
+            tv_group.setText("Groups of 20 (10 groups)");
+        }
     }
 
     public void play(){
