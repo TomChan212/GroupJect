@@ -29,7 +29,7 @@ public class deliverworkFragment extends Fragment implements View.OnClickListene
     SharedPreferences sharedPreferences;
     public static final String sday = "sdayKey";
     public static final String mypref = "mypref";
-    public static final String work1 = "workOne";
+    public static final String work1 = "work1Key";
 
     Button btn_done, btn_back, btn_title,btn_play;
     MediaPlayer mediaPlayer;
@@ -107,7 +107,8 @@ public class deliverworkFragment extends Fragment implements View.OnClickListene
                 ChangeFragment(new deliverworkFragment2());
                 break;
             case R.id.btn_done:
-
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putBoolean(work1,true).commit();
                 ChangeFragment(new deliverworkFragment3());
                 break;
         }

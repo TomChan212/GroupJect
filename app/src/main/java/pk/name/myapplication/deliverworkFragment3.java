@@ -39,6 +39,7 @@ public class deliverworkFragment3 extends Fragment implements View.OnClickListen
     public static final String mypref = "mypref";
     public static final String BMI = "BMIkey";
     public static final String sday = "sdayKey";
+    public static final String work2 = "work2Key";
 
 
     @Override
@@ -124,6 +125,8 @@ public class deliverworkFragment3 extends Fragment implements View.OnClickListen
                 break;
             case R.id.btn_next:
                 ChangeFragment(new deliverworkFragment4());
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putBoolean(work2,true).commit();
                 break;
         }
     }

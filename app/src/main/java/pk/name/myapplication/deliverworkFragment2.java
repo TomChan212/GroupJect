@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
@@ -21,11 +22,18 @@ public class deliverworkFragment2 extends Fragment implements View.OnClickListen
 
     Button btn_w1, btn_w2,btn_w3,btn_menu;
     TextView tv_day,tv_plan;
+    ImageView checkbox1,checkbox2,checkbox3;
     private float bmi;
+    private boolean workOne;
+    private boolean workTwo;
+    private boolean workThree;
 
     SharedPreferences sharedPreferences;
     public static final String mypref = "mypref";
     public static final String BMI = "BMIkey";
+    public static final String work1 = "work1Key";
+    public static final String work2 = "work2Key";
+    public static final String work3 = "work3Key";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -43,10 +51,23 @@ public class deliverworkFragment2 extends Fragment implements View.OnClickListen
         btn_menu.setOnClickListener(this);
         tv_day=root.findViewById(R.id.test);
         tv_plan=root.findViewById(R.id.showPlan);
+        checkbox1 = root.findViewById(R.id.checkbox1);
+        checkbox2 = root.findViewById(R.id.checkbox2);
+        checkbox3 = root.findViewById(R.id.checkbox3);
 
         sharedPreferences = getActivity().getSharedPreferences(mypref, Context.MODE_PRIVATE);
 
         bmi = Float.valueOf(sharedPreferences.getString(BMI,"10"));
+        workOne = sharedPreferences.getBoolean(work1, false);
+        workTwo = sharedPreferences.getBoolean(work2, false);
+        workThree = sharedPreferences.getBoolean(work3, false);
+
+        if( workOne == true){
+
+        }
+
+
+
 
 
         showPlan();
