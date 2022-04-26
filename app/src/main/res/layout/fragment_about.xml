@@ -235,8 +235,8 @@
 
         <ImageView
             android:id="@+id/white3"
-            android:layout_width="366dp"
-            android:layout_height="46dp"
+            android:layout_width="367dp"
+            android:layout_height="41dp"
             android:layout_marginTop="32dp"
             android:alpha="0.6"
             android:src="@android:drawable/screen_background_light"
