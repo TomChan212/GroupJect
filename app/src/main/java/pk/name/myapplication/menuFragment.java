@@ -33,7 +33,6 @@ public class menuFragment extends Fragment implements View.OnClickListener{
         btn_foodplanner = root.findViewById(R.id.btn_foodplanner);
         btn_plan = root.findViewById(R.id.btn_plan);
         btn_deliverwork = root.findViewById(R.id.btn_deliverwork);
-        btn_help = root.findViewById(R.id.btn_help);
 
         //----------------------------------------------------setonclicklistener-----------------------------------------
         btn_about.setOnClickListener(this);
@@ -41,7 +40,6 @@ public class menuFragment extends Fragment implements View.OnClickListener{
         btn_foodplanner.setOnClickListener(this);
         btn_plan.setOnClickListener(this);
         btn_deliverwork.setOnClickListener(this);
-        btn_help.setOnClickListener(this);
 
 
 
@@ -69,9 +67,6 @@ public class menuFragment extends Fragment implements View.OnClickListener{
                 break;
             case R.id.btn_deliverwork:
                 ChangeFragment(new deliverworkFragment2());
-                break;
-            case R.id.btn_help:
-                ChangeFragment(new helpFragment());
                 break;
         }
     }
