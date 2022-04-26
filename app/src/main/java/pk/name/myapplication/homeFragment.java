@@ -22,7 +22,7 @@ import pk.name.myapplication.databinding.FragmentHomeBinding;
 public class homeFragment extends Fragment {
 
     private FragmentHomeBinding binding;
-    private ImageView boyrun;
+    private ImageView boyrun, lifting;
     private TextView tv_continue, loading;
     private Handler mHandler = new Handler();
 
@@ -36,10 +36,12 @@ public class homeFragment extends Fragment {
         boyrun = root.findViewById(R.id.boyrun);
         tv_continue = root.findViewById(R.id.tv_continue);
         loading = root.findViewById(R.id.tv_loading);
+        lifting = root.findViewById(R.id.lifting);
 
         boyrun.setVisibility(View.VISIBLE);
         tv_continue.setVisibility(View.INVISIBLE);
         loading.setVisibility(View.VISIBLE);
+        lifting.setVisibility(View.INVISIBLE);
 
         mHandler.postDelayed(mLoading, 3000);
 
@@ -52,6 +54,7 @@ public class homeFragment extends Fragment {
             boyrun.setVisibility(View.INVISIBLE);
             tv_continue.setVisibility(View.VISIBLE);
             loading.setVisibility(View.INVISIBLE);
+            lifting.setVisibility(View.VISIBLE);
 
         }
     };
