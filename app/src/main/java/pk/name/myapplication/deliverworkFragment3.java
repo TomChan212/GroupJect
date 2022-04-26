@@ -36,7 +36,7 @@ public class deliverworkFragment3 extends Fragment implements View.OnClickListen
     float bmi;
 
     SharedPreferences sharedPreferences;
-    public static final String mypregerence = "mypref";
+    public static final String mypref = "mypref";
     public static final String BMI = "BMIkey";
     public static final String sday = "sdayKey";
 
@@ -68,9 +68,8 @@ public class deliverworkFragment3 extends Fragment implements View.OnClickListen
         btn_back.setOnClickListener(this);
 
         tv_group=root.findViewById(R.id.note);
-        sharedPreferences = getActivity().getSharedPreferences(mypregerence, Context.MODE_PRIVATE);
+        sharedPreferences = getActivity().getSharedPreferences(mypref, Context.MODE_PRIVATE);
         bmi = Float.valueOf(sharedPreferences.getString(BMI,"10"));
-        tv_day.setText(String.valueOf(day)+"/7");
         showGroup();
 
         return root;

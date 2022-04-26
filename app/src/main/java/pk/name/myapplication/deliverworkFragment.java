@@ -29,8 +29,9 @@ public class deliverworkFragment extends Fragment implements View.OnClickListene
     SharedPreferences sharedPreferences;
     public static final String sday = "sdayKey";
     public static final String mypref = "mypref";
+    public static final String work1 = "workOne";
 
-    Button btn_next, btn_back, btn_title,btn_play;
+    Button btn_done, btn_back, btn_title,btn_play;
     MediaPlayer mediaPlayer;
     SurfaceView sv;
     SeekBar seekBar;
@@ -59,14 +60,12 @@ public class deliverworkFragment extends Fragment implements View.OnClickListene
         tv_day = root.findViewById(R.id.tv_day);
         tv_day.setText(String.valueOf(day) + "/7");
 
-        btn_next = root.findViewById(R.id.btn_done);
+        btn_done = root.findViewById(R.id.btn_done);
         btn_back = root.findViewById(R.id.back);
         btn_title = root.findViewById(R.id.title);
 
-        btn_next.setOnClickListener(this);
+        btn_done.setOnClickListener(this);
         btn_back.setOnClickListener(this);
-
-
         return root;
     }
 
@@ -107,21 +106,12 @@ public class deliverworkFragment extends Fragment implements View.OnClickListene
             case R.id.back:
                 ChangeFragment(new deliverworkFragment2());
                 break;
-            case R.id.btn_next:
+            case R.id.btn_done:
+
                 ChangeFragment(new deliverworkFragment3());
                 break;
         }
     }
-
-    private int dayCounter(){
-        if (day<7){
-            day+=1;
-        } else {
-            day=1;
-        }
-        return day;
-    }
-
 
     private void ChangeFragment(Fragment fragment) {
         FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();

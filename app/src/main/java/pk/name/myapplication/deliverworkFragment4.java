@@ -26,8 +26,9 @@ import pk.name.myapplication.databinding.FragmentDeliverworkBinding;
 public class deliverworkFragment4 extends Fragment implements View.OnClickListener{
     private FragmentDeliverwork4Binding binding;
     SharedPreferences sharedPreferences;
-    public static final String sday = "sdayKey";
     public static final String mypref = "mypref";
+    public static final String sday = "sdayKey";
+
 
     Button btn_next, btn_back, btn_title,btn_play;
     MediaPlayer mediaPlayer;
@@ -54,13 +55,11 @@ public class deliverworkFragment4 extends Fragment implements View.OnClickListen
         seekBar.setClickable(false);
         AddSeekBarChangeListener();
 
-        day = sharedPreferences.getInt(sday,1);
-        tv_day=root.findViewById(R.id.tv_day);
-        tv_day.setText(String.valueOf(day)+"/7");
 
-        btn_next=root.findViewById(R.id.btn_done);
-        btn_back=root.findViewById(R.id.back);
-        btn_title=root.findViewById(R.id.title);
+
+        btn_next= root.findViewById(R.id.btn_next);
+        btn_back= root.findViewById(R.id.back);
+        btn_title= root.findViewById(R.id.title);
 
         btn_next.setOnClickListener(this);
         btn_back.setOnClickListener(this);
@@ -106,7 +105,7 @@ public class deliverworkFragment4 extends Fragment implements View.OnClickListen
             case R.id.back:
                 ChangeFragment(new deliverworkFragment2());
                 break;
-            case R.id.btn_done:
+            case R.id.btn_next:
                 changeDay();
                 ChangeFragment(new deliverworkFragment2());
                 Toast.makeText(getContext().getApplicationContext(), "You have finished today set!!", Toast.LENGTH_LONG).show();
