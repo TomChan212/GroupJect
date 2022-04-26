@@ -51,7 +51,7 @@
             android:backgroundTint="#000000"
             android:text="Workout 1"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintHorizontal_bias="0.304"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -63,7 +63,7 @@
             android:backgroundTint="#000000"
             android:text="Workout 2"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintHorizontal_bias="0.304"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/wButton1" />
 
@@ -75,7 +75,7 @@
             android:backgroundTint="#000000"
             android:text="Workout 3"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintHorizontal_bias="0.304"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/wButton2" />
 
@@ -89,6 +89,40 @@
             android:text="Back"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
+
+        <ImageView
+            android:id="@+id/checkbox1"
+            android:layout_width="49dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="64dp"
+            android:layout_marginTop="280dp"
+            android:src="@android:drawable/checkbox_off_background"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/wButton1"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/checkbox2"
+            android:layout_width="49dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="348dp"
+            android:src="@android:drawable/checkbox_off_background"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.421"
+            app:layout_constraintStart_toEndOf="@+id/wButton2"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/checkbox3"
+            android:layout_width="49dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="416dp"
+            android:src="@android:drawable/checkbox_off_background"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.421"
+            app:layout_constraintStart_toEndOf="@+id/wButton3"
+            app:layout_constraintTop_toTopOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

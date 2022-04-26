@@ -28,7 +28,7 @@ public class deliverworkFragment4 extends Fragment implements View.OnClickListen
     SharedPreferences sharedPreferences;
     public static final String mypref = "mypref";
     public static final String sday = "sdayKey";
-
+    public static final String work3 = "work3Key";
 
     Button btn_next, btn_back, btn_title,btn_play;
     MediaPlayer mediaPlayer;
@@ -54,6 +54,8 @@ public class deliverworkFragment4 extends Fragment implements View.OnClickListen
         seekBar=root.findViewById(R.id.seekBar);
         seekBar.setClickable(false);
         AddSeekBarChangeListener();
+
+        day = sharedPreferences.getInt(sday, 1);
 
 
 
@@ -106,6 +108,8 @@ public class deliverworkFragment4 extends Fragment implements View.OnClickListen
                 ChangeFragment(new deliverworkFragment2());
                 break;
             case R.id.btn_next:
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putBoolean(work3,true).commit();
                 changeDay();
                 ChangeFragment(new deliverworkFragment2());
                 Toast.makeText(getContext().getApplicationContext(), "You have finished today set!!", Toast.LENGTH_LONG).show();
