@@ -172,9 +172,6 @@ public class deliverworkFragment extends Fragment implements View.OnClickListene
                 Calendar calendar = Calendar.getInstance();
                 Date today = calendar.getTime();
 
-                calendar.add(Calendar.DAY_OF_YEAR,1);
-                Date tmr = calendar.getTime();
-
                 DateFormat dateFormat = new SimpleDateFormat("dd");
 
                 String todayAsString = dateFormat.format(today);
