@@ -95,7 +95,11 @@ public class deliverworkFragment2 extends Fragment implements View.OnClickListen
             editor.putBoolean(work1,false).commit();
             editor.putBoolean(work2,false).commit();
             editor.putBoolean(work3,false).commit();
-            changeDay();
+
+            if(Done == false) {
+                changeDay();
+                editor.putBoolean(done, true).commit();
+            }
 
         }
 
@@ -150,7 +154,7 @@ public class deliverworkFragment2 extends Fragment implements View.OnClickListen
             case R.id.wButton1:
                 ChangeFragment(new deliverworkFragment());
                 SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.putBoolean(done,true);
+                editor.putBoolean(done, false).commit();
                 //code for pass data to be entered
                 break;
             case R.id.wButton2:

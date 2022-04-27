@@ -84,8 +84,11 @@ public class foodplannerFragment extends Fragment implements View.OnTouchListene
         DateFormat dateFormat = new SimpleDateFormat("dd");
         int todayAsString = Integer.valueOf(dateFormat.format(today));
         if (today1 != todayAsString ){
-            changeDay();
-
+            if (Done == false) {
+                changeDay();
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putBoolean(done, true).commit();
+            }
         }
 
         btn_done.setOnClickListener(new View.OnClickListener() {
