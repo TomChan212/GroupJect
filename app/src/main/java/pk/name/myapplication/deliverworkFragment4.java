@@ -182,6 +182,7 @@ public class deliverworkFragment4 extends Fragment implements View.OnClickListen
 
             case R.id.back:
                 ChangeFragment(new deliverworkFragment2());
+                pause();
                 break;
             case R.id.btn_next:
                 pause();
@@ -195,17 +196,6 @@ public class deliverworkFragment4 extends Fragment implements View.OnClickListen
                 break;
         }
     }
-
-   /* public void changeDay(){
-        if (day<7) {
-            day += 1;
-            sharedPreferences.edit().putInt(sday, day).commit();
-        }
-        else {
-            day = 1;
-            sharedPreferences.edit().putInt(sday, day).commit();
-        }
-    }*/
 
 
     private void ChangeFragment(Fragment fragment) {

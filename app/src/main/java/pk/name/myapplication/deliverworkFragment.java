@@ -184,6 +184,7 @@ public class deliverworkFragment extends Fragment implements View.OnClickListene
                 break;
             case R.id.back:
                 ChangeFragment(new deliverworkFragment2());
+                pause();
                 break;
             case R.id.btn_next:
                 pause();

@@ -25,7 +25,7 @@ import pk.name.myapplication.databinding.FragmentDeliverworkBinding;
 public class deliverworkFragment2 extends Fragment implements View.OnClickListener {
     private FragmentDeliverwork2Binding binding;
 
-    Button btn_w1, btn_w2,btn_w3,btn_menu;
+    Button btn_w1, btn_w2,btn_w3,btn_menu,btn_allWork;
     TextView tv_day,tv_plan;
     ImageView checkbox1,checkbox2,checkbox3;
     private float bmi;
@@ -64,6 +64,8 @@ public class deliverworkFragment2 extends Fragment implements View.OnClickListen
         btn_w3.setOnClickListener(this);
         btn_menu=root.findViewById(R.id.menu);
         btn_menu.setOnClickListener(this);
+        btn_allWork=root.findViewById(R.id.btn_allWork);
+        btn_allWork.setOnClickListener(this);
         tv_day=root.findViewById(R.id.tv_day);
         tv_plan=root.findViewById(R.id.showPlan);
         checkbox1 = root.findViewById(R.id.checkbox1);
@@ -169,6 +171,8 @@ public class deliverworkFragment2 extends Fragment implements View.OnClickListen
                 ChangeFragment(new menuFragment());
                 //code for pass data to be entered
                 break;
+            case R.id.btn_allWork:
+                ChangeFragment(new AllWorkoutFragment());
         }
     }
     private void ChangeFragment(Fragment fragment) {

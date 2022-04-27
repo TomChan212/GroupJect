@@ -22,10 +22,11 @@ import android.widget.Toast;
 
 import pk.name.myapplication.databinding.FragmentDeliverwork3Binding;
 import pk.name.myapplication.databinding.FragmentHomeBinding;
+import pk.name.myapplication.databinding.FragmentPushupBinding;
 
 
-public class deliverworkFragment3 extends Fragment implements View.OnClickListener{
-    private FragmentDeliverwork3Binding binding;
+public class pushupFragment extends Fragment implements View.OnClickListener{
+    private FragmentPushupBinding binding;
 
 
     Button btn_next, btn_back, btn_title,btn_play;
@@ -49,7 +50,7 @@ public class deliverworkFragment3 extends Fragment implements View.OnClickListen
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        binding = FragmentDeliverwork3Binding.inflate(inflater, container, false);
+        binding = FragmentPushupBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
         // Inflate the layout for this fragment
 
@@ -66,11 +67,9 @@ public class deliverworkFragment3 extends Fragment implements View.OnClickListen
 
         tv_day=root.findViewById(R.id.test);
 
-        btn_next=root.findViewById(R.id.btn_next);
         btn_back=root.findViewById(R.id.back);
         btn_title=root.findViewById(R.id.title);
 
-        btn_next.setOnClickListener(this);
         btn_back.setOnClickListener(this);
 
         tv_group=root.findViewById(R.id.note);
@@ -175,14 +174,8 @@ public class deliverworkFragment3 extends Fragment implements View.OnClickListen
                 init_SeekBar();
                 break;
             case R.id.back:
-                ChangeFragment(new deliverworkFragment2());
+                ChangeFragment(new AllWorkoutFragment());
                 pause();
-                break;
-            case R.id.btn_next:
-                pause();
-                ChangeFragment(new deliverworkFragment4());
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.putBoolean(work2,true).commit();
                 break;
         }
     }

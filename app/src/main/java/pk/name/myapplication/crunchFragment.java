@@ -20,59 +20,64 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import pk.name.myapplication.databinding.FragmentDeliverwork3Binding;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
+import pk.name.myapplication.databinding.FragmentCrunchBinding;
+import pk.name.myapplication.databinding.FragmentDeliverwork4Binding;
+import pk.name.myapplication.databinding.FragmentDeliverworkBinding;
 import pk.name.myapplication.databinding.FragmentHomeBinding;
 
 
-public class deliverworkFragment3 extends Fragment implements View.OnClickListener{
-    private FragmentDeliverwork3Binding binding;
+public class crunchFragment extends Fragment implements View.OnClickListener{
+    private FragmentCrunchBinding binding;
+    SharedPreferences sharedPreferences;
+    public static final String sday = "sdayKey";
+    public static final String mypref = "mypref";
+    public static final String work1 = "work1Key";
+    public static final String BMI = "BMIkey";
+    public static final String todayK = "todayKey";
+    public static final String plan = "plankey";
 
-
-    Button btn_next, btn_back, btn_title,btn_play;
+    Button  btn_back, btn_title,btn_play;
     MediaPlayer mediaPlayer;
     SurfaceView sv;
     SeekBar seekBar;
     TextView tv_day,tv_group;
-    int[] raw_index={R.raw.pushup};
+    int[] raw_index={R.raw.crunch};
     int day;
     float bmi;
     String Plan;
-
-    SharedPreferences sharedPreferences;
-    public static final String mypref = "mypref";
-    public static final String BMI = "BMIkey";
-    public static final String sday = "sdayKey";
-    public static final String work2 = "work2Key";
-    public static final String plan = "plankey";
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        binding = FragmentDeliverwork3Binding.inflate(inflater, container, false);
+        binding = FragmentCrunchBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
         // Inflate the layout for this fragment
 
-
-        btn_play=root.findViewById(R.id.btn_play);
+        sharedPreferences = getActivity().getSharedPreferences(mypref, Context.MODE_PRIVATE);
+        btn_play = root.findViewById(R.id.btn_play);
         btn_play.setOnClickListener(this);
         sv = root.findViewById(R.id.surfaceView);
-        mediaPlayer=MediaPlayer.create(getActivity(),R.raw.pushup);
-        seekBar=root.findViewById(R.id.seekBar);
+        mediaPlayer = MediaPlayer.create(getActivity(), R.raw.crunch);
+        seekBar = root.findViewById(R.id.seekBar);
         seekBar.setClickable(false);
         AddSeekBarChangeListener();
 
 
 
-        tv_day=root.findViewById(R.id.test);
+        day = sharedPreferences.getInt(sday, 1);
+        tv_day = root.findViewById(R.id.tv_day);
+        tv_group=root.findViewById(R.id.note);
 
-        btn_next=root.findViewById(R.id.btn_next);
-        btn_back=root.findViewById(R.id.back);
-        btn_title=root.findViewById(R.id.title);
+        btn_back = root.findViewById(R.id.back);
+        btn_title = root.findViewById(R.id.title);
 
-        btn_next.setOnClickListener(this);
         btn_back.setOnClickListener(this);
-
         tv_group=root.findViewById(R.id.note);
         sharedPreferences = getActivity().getSharedPreferences(mypref, Context.MODE_PRIVATE);
         bmi = Float.valueOf(sharedPreferences.getString(BMI,"10"));
@@ -133,12 +138,14 @@ public class deliverworkFragment3 extends Fragment implements View.OnClickListen
         try{
             if(mediaPlayer.isPlaying()){
                 mediaPlayer.pause();
+                btn_play.setText("▶");
             }
         }
         catch (Exception e) {
             Toast.makeText(getActivity().getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
         }
     }
+
 
     public void AddSeekBarChangeListener() {
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
@@ -175,24 +182,17 @@ public class deliverworkFragment3 extends Fragment implements View.OnClickListen
                 init_SeekBar();
                 break;
             case R.id.back:
-                ChangeFragment(new deliverworkFragment2());
+                ChangeFragment(new AllWorkoutFragment());
                 pause();
                 break;
-            case R.id.btn_next:
-                pause();
-                ChangeFragment(new deliverworkFragment4());
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.putBoolean(work2,true).commit();
-                break;
+
         }
     }
-
-
-
 
     private void ChangeFragment(Fragment fragment) {
         FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.flFragment, fragment).addToBackStack(null);
         fragmentTransaction.commit();
     }
+
 }
