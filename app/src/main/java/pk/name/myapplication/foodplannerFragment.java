@@ -18,6 +18,11 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 import pk.name.myapplication.databinding.FragmentFoodplannerBinding;
 import pk.name.myapplication.databinding.FragmentHomeBinding;
 
@@ -27,13 +32,16 @@ public class foodplannerFragment extends Fragment implements View.OnTouchListene
 
     private Button btn_title,btn_done,btn_back;
     private TextView tv_day,tv_breakfast,tv_breakfast2,tv_lunch,tv_lunch2,tv_dinner,tv_dinner2,tv_suggest;
-    private int day;
+    private int day,today1;
     private float bmi;
+    private boolean Done;
 
     SharedPreferences sharedPreferences;
     public static final String mypref = "mypref";
     public static final String sday = "sdayKey";
     public static final String BMI = "BMIkey";
+    public static final String todayK = "todayKey";
+    public static final String done =  "doneKey";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -54,8 +62,8 @@ public class foodplannerFragment extends Fragment implements View.OnTouchListene
         tv_suggest = root.findViewById(R.id.tv_fp_suggest);
 
         sharedPreferences = getActivity().getSharedPreferences(mypref, Context.MODE_PRIVATE);
-
-        day = sharedPreferences.getInt(sday,1);
+        Done = sharedPreferences.getBoolean(done,false);
+        day = sharedPreferences.getInt(sday,0);
         bmi = Float.valueOf(sharedPreferences.getString(BMI,"10"));
 
         tv_breakfast2.setOnTouchListener(this);
@@ -63,6 +71,22 @@ public class foodplannerFragment extends Fragment implements View.OnTouchListene
         tv_lunch2.setOnTouchListener(this);
 
         btn_title.setClickable(false);
+
+        try {
+            today1 = Integer.valueOf(sharedPreferences.getString(todayK, ""));
+        }
+        catch (Exception e){
+
+        }
+        Calendar calendar = Calendar.getInstance();
+        Date today = calendar.getTime();
+
+        DateFormat dateFormat = new SimpleDateFormat("dd");
+        int todayAsString = Integer.valueOf(dateFormat.format(today));
+        if (today1 != todayAsString ){
+            changeDay();
+
+        }
 
         btn_done.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -236,5 +260,16 @@ public class foodplannerFragment extends Fragment implements View.OnTouchListene
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
         return false;
+    }
+
+    public void changeDay(){
+        if (day<7) {
+            day += 1;
+            sharedPreferences.edit().putInt(sday, day).commit();
+        }
+        else {
+            day = 1;
+            sharedPreferences.edit().putInt(sday, day).commit();
+        }
     }
 }

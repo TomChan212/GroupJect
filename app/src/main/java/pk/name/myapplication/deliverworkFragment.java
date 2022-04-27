@@ -37,7 +37,7 @@ public class deliverworkFragment extends Fragment implements View.OnClickListene
     public static final String mypref = "mypref";
     public static final String work1 = "work1Key";
     public static final String BMI = "BMIkey";
-    public static final String Tmr = "tmrKey";
+    public static final String todayK = "todayKey";
 
     Button btn_done, btn_back, btn_title,btn_play;
     MediaPlayer mediaPlayer;
@@ -175,7 +175,7 @@ public class deliverworkFragment extends Fragment implements View.OnClickListene
                 DateFormat dateFormat = new SimpleDateFormat("dd");
 
                 String todayAsString = dateFormat.format(today);
-                editor.putString(Tmr,todayAsString).commit();
+                editor.putString(todayK,todayAsString).commit();
                 break;
         }
     }
@@ -185,4 +185,5 @@ public class deliverworkFragment extends Fragment implements View.OnClickListene
         fragmentTransaction.replace(R.id.flFragment, fragment).addToBackStack(null);
         fragmentTransaction.commit();
     }
+
 }

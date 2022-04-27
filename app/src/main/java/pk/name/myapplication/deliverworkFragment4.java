@@ -165,7 +165,7 @@ public class deliverworkFragment4 extends Fragment implements View.OnClickListen
                 pause();
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.putBoolean(work3,true).commit();
-                changeDay();
+                //changeDay();
                 ChangeFragment(new deliverworkFragment2());
 
 
@@ -174,7 +174,7 @@ public class deliverworkFragment4 extends Fragment implements View.OnClickListen
         }
     }
 
-    public void changeDay(){
+   /* public void changeDay(){
         if (day<7) {
             day += 1;
             sharedPreferences.edit().putInt(sday, day).commit();
@@ -183,7 +183,7 @@ public class deliverworkFragment4 extends Fragment implements View.OnClickListen
             day = 1;
             sharedPreferences.edit().putInt(sday, day).commit();
         }
-    }
+    }*/
 
 
     private void ChangeFragment(Fragment fragment) {

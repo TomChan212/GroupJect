@@ -32,6 +32,7 @@ public class deliverworkFragment2 extends Fragment implements View.OnClickListen
     private boolean workOne;
     private boolean workTwo;
     private boolean workThree;
+    private boolean Done;
     private int tmr;
     int day;
 
@@ -41,8 +42,9 @@ public class deliverworkFragment2 extends Fragment implements View.OnClickListen
     public static final String work1 = "work1Key";
     public static final String work2 = "work2Key";
     public static final String work3 = "work3Key";
-    public static final String Tmr = "tmrKey";
+    public static final String todayK = "todayKey";
     public static final String sday = "sdayKey";
+    public static final String done = "doneKey";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -67,10 +69,10 @@ public class deliverworkFragment2 extends Fragment implements View.OnClickListen
         checkbox3 = root.findViewById(R.id.checkbox3);
 
         sharedPreferences = getActivity().getSharedPreferences(mypref, Context.MODE_PRIVATE);
-        day = sharedPreferences.getInt(sday,1);
+        day = sharedPreferences.getInt(sday,0);
 
         try {
-            tmr = Integer.valueOf(sharedPreferences.getString(Tmr, ""));
+            tmr = Integer.valueOf(sharedPreferences.getString(todayK, ""));
         }
         catch (Exception e){
 
@@ -80,16 +82,18 @@ public class deliverworkFragment2 extends Fragment implements View.OnClickListen
 
         DateFormat dateFormat = new SimpleDateFormat("dd");
         int todayAsString = Integer.valueOf(dateFormat.format(today));
+        SharedPreferences.Editor editor = sharedPreferences.edit();
 
-
-        if (tmr != todayAsString){
+        Done = sharedPreferences.getBoolean(done,false);
+        if (tmr != todayAsString ){
             btn_w2.setEnabled(false);
             btn_w3.setEnabled(false);
 
-            SharedPreferences.Editor editor = sharedPreferences.edit();
             editor.putBoolean(work1,false).commit();
             editor.putBoolean(work2,false).commit();
             editor.putBoolean(work3,false).commit();
+            changeDay();
+
         }
 
 
@@ -124,8 +128,8 @@ public class deliverworkFragment2 extends Fragment implements View.OnClickListen
         }
 
 
-        tv_day.setText("Day: "+day+"/7");
 
+        tv_day.setText("Day: "+day+"/7");
         showPlan();
 
         return root;
@@ -146,6 +150,8 @@ public class deliverworkFragment2 extends Fragment implements View.OnClickListen
         switch(view.getId()){
             case R.id.wButton1:
                 ChangeFragment(new deliverworkFragment());
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putBoolean(done,true);
                 //code for pass data to be entered
                 break;
             case R.id.wButton2:
@@ -166,5 +172,15 @@ public class deliverworkFragment2 extends Fragment implements View.OnClickListen
         FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.flFragment, fragment).addToBackStack(null);
         fragmentTransaction.commit();
+    }
+    public void changeDay(){
+        if (day<7) {
+            day += 1;
+            sharedPreferences.edit().putInt(sday, day).commit();
+        }
+        else {
+            day = 1;
+            sharedPreferences.edit().putInt(sday, day).commit();
+        }
     }
 }
