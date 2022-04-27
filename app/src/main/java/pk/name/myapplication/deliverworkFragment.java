@@ -67,9 +67,9 @@ public class deliverworkFragment extends Fragment implements View.OnClickListene
         seekBar.setClickable(false);
         AddSeekBarChangeListener();
 
-        Plan = sharedPreferences.getString(plan,"Moderate Plan");
 
-                day = sharedPreferences.getInt(sday, 1);
+
+        day = sharedPreferences.getInt(sday, 1);
         tv_day = root.findViewById(R.id.tv_day);
         tv_group=root.findViewById(R.id.note);
 
@@ -82,7 +82,7 @@ public class deliverworkFragment extends Fragment implements View.OnClickListene
         tv_group=root.findViewById(R.id.note);
         sharedPreferences = getActivity().getSharedPreferences(mypref, Context.MODE_PRIVATE);
         bmi = Float.valueOf(sharedPreferences.getString(BMI,"10"));
-
+        Plan = sharedPreferences.getString(plan,"");
         showGroup();
 
         return root;
@@ -90,6 +90,7 @@ public class deliverworkFragment extends Fragment implements View.OnClickListene
 
     public void showGroup(){
         if (bmi<18.5) {
+            tv_group.setText("Groups of 5 (2 groups)");
             if (Plan == "Mild Plan")
                 tv_group.setText("Groups of 5 (1 groups)");
             if (Plan == "Moderate Plan")
@@ -97,6 +98,7 @@ public class deliverworkFragment extends Fragment implements View.OnClickListene
             if (Plan == "Vigorous Plan")
                 tv_group.setText("Groups of 5 (3 groups)");
         }else if (bmi<25){
+            tv_group.setText("Groups of 10 (5 groups)");
             if (Plan == "Mild Plan")
                 tv_group.setText("Groups of 10 (4 groups)");
             if (Plan == "Moderate Plan")
@@ -104,6 +106,7 @@ public class deliverworkFragment extends Fragment implements View.OnClickListene
             if (Plan == "Vigorous Plan")
                 tv_group.setText("Groups of 10 (6 groups)");
         }else {
+            tv_group.setText("Groups of 20 (10 groups)");
             if (Plan == "Mild Plan")
                 tv_group.setText("Groups of 20 (9 groups)");
             if (Plan == "Moderate Plan")

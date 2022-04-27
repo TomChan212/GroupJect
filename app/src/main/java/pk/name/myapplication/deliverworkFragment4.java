@@ -69,7 +69,7 @@ public class deliverworkFragment4 extends Fragment implements View.OnClickListen
 
         day = sharedPreferences.getInt(sday, 1);
 
-        Plan = sharedPreferences.getString(plan,"Moderate Plan");
+        Plan = sharedPreferences.getString(plan,"");
 
         btn_next= root.findViewById(R.id.btn_next);
         btn_back= root.findViewById(R.id.back);
@@ -81,6 +81,7 @@ public class deliverworkFragment4 extends Fragment implements View.OnClickListen
         tv_group=root.findViewById(R.id.note);
         sharedPreferences = getActivity().getSharedPreferences(mypref, Context.MODE_PRIVATE);
         bmi = Float.valueOf(sharedPreferences.getString(BMI,"10"));
+        Plan = sharedPreferences.getString(plan,"");
         showGroup();
 
         return root;
@@ -88,6 +89,7 @@ public class deliverworkFragment4 extends Fragment implements View.OnClickListen
 
     public void showGroup(){
         if (bmi<18.5) {
+            tv_group.setText("Groups of 5 (2 groups)");
             if (Plan == "Mild Plan")
                 tv_group.setText("Groups of 5 (1 groups)");
             if (Plan == "Moderate Plan")
@@ -95,6 +97,7 @@ public class deliverworkFragment4 extends Fragment implements View.OnClickListen
             if (Plan == "Vigorous Plan")
                 tv_group.setText("Groups of 5 (3 groups)");
         }else if (bmi<25){
+            tv_group.setText("Groups of 10 (5 groups)");
             if (Plan == "Mild Plan")
                 tv_group.setText("Groups of 10 (4 groups)");
             if (Plan == "Moderate Plan")
@@ -102,6 +105,7 @@ public class deliverworkFragment4 extends Fragment implements View.OnClickListen
             if (Plan == "Vigorous Plan")
                 tv_group.setText("Groups of 10 (6 groups)");
         }else {
+            tv_group.setText("Groups of 20 (10 groups)");
             if (Plan == "Mild Plan")
                 tv_group.setText("Groups of 20 (9 groups)");
             if (Plan == "Moderate Plan")
