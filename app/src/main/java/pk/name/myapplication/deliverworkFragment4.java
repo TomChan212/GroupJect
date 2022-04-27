@@ -159,7 +159,7 @@ public class deliverworkFragment4 extends Fragment implements View.OnClickListen
                 init_SeekBar();
                 break;
             case R.id.back:
-                ChangeFragment(new deliverworkFragment3());
+                ChangeFragment(new deliverworkFragment2());
                 break;
             case R.id.btn_next:
                 pause();
@@ -177,7 +177,7 @@ public class deliverworkFragment4 extends Fragment implements View.OnClickListen
                 DateFormat dateFormat = new SimpleDateFormat("dd");
 
                 String todayAsString = dateFormat.format(today);
-                editor.putString(Tmr,todayAsString).commit();
+                editor.putString(Tmr,String.valueOf(day)).commit();
 
                 Toast.makeText(getContext().getApplicationContext(), "You have finished today set!!", Toast.LENGTH_LONG).show();
                 break;

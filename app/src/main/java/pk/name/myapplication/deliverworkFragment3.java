@@ -153,7 +153,7 @@ public class deliverworkFragment3 extends Fragment implements View.OnClickListen
                 init_SeekBar();
                 break;
             case R.id.back:
-                ChangeFragment(new deliverworkFragment());
+                ChangeFragment(new deliverworkFragment2());
                 break;
             case R.id.btn_next:
                 pause();

@@ -67,6 +67,7 @@ public class deliverworkFragment2 extends Fragment implements View.OnClickListen
         checkbox3 = root.findViewById(R.id.checkbox3);
 
         sharedPreferences = getActivity().getSharedPreferences(mypref, Context.MODE_PRIVATE);
+        day = sharedPreferences.getInt(sday,1);
 
         try {
             tmr = Integer.valueOf(sharedPreferences.getString(Tmr, ""));
@@ -96,7 +97,6 @@ public class deliverworkFragment2 extends Fragment implements View.OnClickListen
         workOne = sharedPreferences.getBoolean(work1, false);
         workTwo = sharedPreferences.getBoolean(work2, false);
         workThree = sharedPreferences.getBoolean(work3, false);
-        day = sharedPreferences.getInt(sday,1);
 
         if( workOne == true){
             checkbox1.setImageResource(R.drawable.ic_baseline_check_box_24);
