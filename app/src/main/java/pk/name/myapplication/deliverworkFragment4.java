@@ -165,35 +165,13 @@ public class deliverworkFragment4 extends Fragment implements View.OnClickListen
                 pause();
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.putBoolean(work3,true).commit();
-                changeDay();
                 ChangeFragment(new deliverworkFragment2());
 
-                Calendar calendar = Calendar.getInstance();
-                Date today = calendar.getTime();
 
-                calendar.add(Calendar.DAY_OF_YEAR,1);
-                Date tmr = calendar.getTime();
-
-                DateFormat dateFormat = new SimpleDateFormat("dd");
-
-                String todayAsString = dateFormat.format(today);
-                editor.putString(Tmr,String.valueOf(day)).commit();
-
-                Toast.makeText(getContext().getApplicationContext(), "You have finished today set!!", Toast.LENGTH_LONG).show();
-                break;
         }
     }
 
-    public void changeDay(){
-        if (day<7) {
-            day += 1;
-            sharedPreferences.edit().putInt(sday, day).commit();
-        }
-        else {
-            day = 1;
-            sharedPreferences.edit().putInt(sday, day).commit();
-        }
-    }
+
 
 
     private void ChangeFragment(Fragment fragment) {

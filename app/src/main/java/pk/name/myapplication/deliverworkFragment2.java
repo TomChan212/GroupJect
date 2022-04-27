@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
@@ -25,7 +26,7 @@ import pk.name.myapplication.databinding.FragmentDeliverworkBinding;
 public class deliverworkFragment2 extends Fragment implements View.OnClickListener {
     private FragmentDeliverwork2Binding binding;
 
-    Button btn_w1, btn_w2,btn_w3,btn_menu;
+    Button btn_w1, btn_w2,btn_w3,btn_menu,btn_clear;
     TextView tv_day,tv_plan;
     ImageView checkbox1,checkbox2,checkbox3;
     private float bmi;
@@ -60,6 +61,8 @@ public class deliverworkFragment2 extends Fragment implements View.OnClickListen
         btn_w3.setOnClickListener(this);
         btn_menu=root.findViewById(R.id.menu);
         btn_menu.setOnClickListener(this);
+        btn_clear=root.findViewById(R.id.clear);
+        btn_clear.setOnClickListener(this);
         tv_day=root.findViewById(R.id.tv_day);
         tv_plan=root.findViewById(R.id.showPlan);
         checkbox1 = root.findViewById(R.id.checkbox1);
@@ -98,6 +101,8 @@ public class deliverworkFragment2 extends Fragment implements View.OnClickListen
         workTwo = sharedPreferences.getBoolean(work2, false);
         workThree = sharedPreferences.getBoolean(work3, false);
 
+        btn_clear.setEnabled(false);
+
         if( workOne == true){
             checkbox1.setImageResource(R.drawable.ic_baseline_check_box_24);
         }else{
@@ -111,6 +116,7 @@ public class deliverworkFragment2 extends Fragment implements View.OnClickListen
         }
         if( workThree == true){
             checkbox3.setImageResource(R.drawable.ic_baseline_check_box_24);
+            btn_clear.setEnabled(true);
         }
         else{
             checkbox3.setImageResource(R.drawable.ic_baseline_check_box_outline_blank_24);
@@ -131,6 +137,35 @@ public class deliverworkFragment2 extends Fragment implements View.OnClickListen
         return root;
     }
 
+    public void clear(){
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        changeDay();
+        tv_day.setText("Day: "+day+"/7");
+
+        btn_w2.setEnabled(false);
+        btn_w3.setEnabled(false);
+        editor.putBoolean(work1,false).commit();
+        editor.putBoolean(work2,false).commit();
+        editor.putBoolean(work3,false).commit();
+        checkbox1.setImageResource(R.drawable.ic_baseline_check_box_outline_blank_24);
+        checkbox2.setImageResource(R.drawable.ic_baseline_check_box_outline_blank_24);
+        checkbox3.setImageResource(R.drawable.ic_baseline_check_box_outline_blank_24);
+
+        Calendar calendar = Calendar.getInstance();
+        Date today = calendar.getTime();
+
+        calendar.add(Calendar.DAY_OF_YEAR,1);
+        Date tmr = calendar.getTime();
+
+        DateFormat dateFormat = new SimpleDateFormat("dd");
+
+        String todayAsString = dateFormat.format(today);
+        editor.putString(Tmr,String.valueOf(day)).commit();
+
+        Toast.makeText(getContext().getApplicationContext(), "You have finished today set!!", Toast.LENGTH_LONG).show();
+        btn_clear.setEnabled(false);
+    }
+
     public void showPlan(){
         if (bmi<18.5) {
             tv_plan.setText("Plan: Mild");
@@ -138,6 +173,17 @@ public class deliverworkFragment2 extends Fragment implements View.OnClickListen
             tv_plan.setText("Plan: Moderate");
             }else {
             tv_plan.setText("Plan: Vigorous");
+        }
+    }
+
+    public void changeDay(){
+        if (day<7) {
+            day += 1;
+            sharedPreferences.edit().putInt(sday, day).commit();
+        }
+        else {
+            day = 1;
+            sharedPreferences.edit().putInt(sday, day).commit();
         }
     }
 
@@ -159,6 +205,9 @@ public class deliverworkFragment2 extends Fragment implements View.OnClickListen
             case R.id.menu:
                 ChangeFragment(new menuFragment());
                 //code for pass data to be entered
+                break;
+            case R.id.clear:
+                clear();
                 break;
         }
     }
