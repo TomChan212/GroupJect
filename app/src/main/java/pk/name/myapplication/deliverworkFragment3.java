@@ -155,6 +155,7 @@ public class deliverworkFragment3 extends Fragment implements View.OnClickListen
                 ChangeFragment(new deliverworkFragment2());
                 break;
             case R.id.btn_next:
+                pause();
                 ChangeFragment(new deliverworkFragment4());
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.putBoolean(work2,true).commit();

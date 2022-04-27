@@ -13,6 +13,11 @@ import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 import pk.name.myapplication.databinding.FragmentAboutBinding;
 import pk.name.myapplication.databinding.FragmentDeliverwork2Binding;
 import pk.name.myapplication.databinding.FragmentDeliverworkBinding;
@@ -27,8 +32,7 @@ public class deliverworkFragment2 extends Fragment implements View.OnClickListen
     private boolean workOne;
     private boolean workTwo;
     private boolean workThree;
-    int day;
-
+    private int tmr;
 
     SharedPreferences sharedPreferences;
     public static final String mypref = "mypref";
@@ -36,13 +40,15 @@ public class deliverworkFragment2 extends Fragment implements View.OnClickListen
     public static final String work1 = "work1Key";
     public static final String work2 = "work2Key";
     public static final String work3 = "work3Key";
-    public static final String sday = "sdayKey";
+    public static final String Tmr = "tmrKey";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = FragmentDeliverwork2Binding.inflate(inflater, container, false);
         View root = binding.getRoot();
+
+
 
         btn_w1=root.findViewById(R.id.wButton1);
         btn_w1.setOnClickListener(this);
@@ -52,7 +58,7 @@ public class deliverworkFragment2 extends Fragment implements View.OnClickListen
         btn_w3.setOnClickListener(this);
         btn_menu=root.findViewById(R.id.menu);
         btn_menu.setOnClickListener(this);
-        tv_day=root.findViewById(R.id.tv_day);
+        tv_day=root.findViewById(R.id.test);
         tv_plan=root.findViewById(R.id.showPlan);
         checkbox1 = root.findViewById(R.id.checkbox1);
         checkbox2 = root.findViewById(R.id.checkbox2);
@@ -60,29 +66,62 @@ public class deliverworkFragment2 extends Fragment implements View.OnClickListen
 
         sharedPreferences = getActivity().getSharedPreferences(mypref, Context.MODE_PRIVATE);
 
+        try {
+            tmr = Integer.valueOf(sharedPreferences.getString(Tmr, ""));
+        }
+        catch (Exception e){
+
+        }
+        Calendar calendar = Calendar.getInstance();
+        Date today = calendar.getTime();
+
+        DateFormat dateFormat = new SimpleDateFormat("dd");
+        int todayAsString = Integer.valueOf(dateFormat.format(today));
+
+
+        if (tmr != todayAsString){
+            btn_w2.setEnabled(false);
+            btn_w3.setEnabled(false);
+
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putBoolean(work1,false).commit();
+            editor.putBoolean(work2,false).commit();
+            editor.putBoolean(work3,false).commit();
+        }
+
+
         bmi = Float.valueOf(sharedPreferences.getString(BMI,"10"));
         workOne = sharedPreferences.getBoolean(work1, false);
         workTwo = sharedPreferences.getBoolean(work2, false);
         workThree = sharedPreferences.getBoolean(work3, false);
-        day = sharedPreferences.getInt(sday,1);
-
 
         if( workOne == true){
             checkbox1.setImageResource(R.drawable.ic_baseline_check_box_24);
+        }else{
+            checkbox1.setImageResource(R.drawable.ic_baseline_check_box_outline_blank_24);
         }
         if( workTwo == true){
             checkbox2.setImageResource(R.drawable.ic_baseline_check_box_24);
         }
+        else{
+            checkbox2.setImageResource(R.drawable.ic_baseline_check_box_outline_blank_24);
+        }
         if( workThree == true){
             checkbox3.setImageResource(R.drawable.ic_baseline_check_box_24);
         }
+        else{
+            checkbox3.setImageResource(R.drawable.ic_baseline_check_box_outline_blank_24);
+        }
 
-        if(workOne != true){
+        if(workOne == false){
             btn_w2.setEnabled(false);
         }
-        if(workOne != true || workTwo != true){
+        if(workOne == false || workTwo == false){
             btn_w3.setEnabled(false);
         }
+
+
+
 
         showPlan();
 
@@ -90,13 +129,12 @@ public class deliverworkFragment2 extends Fragment implements View.OnClickListen
     }
 
     public void showPlan(){
-        tv_day.setText("Day "+String.valueOf(day)+"/7");
         if (bmi<18.5) {
-            tv_plan.setText("Plan: Mild");
+            tv_plan.setText("Plan: Fitness Plan 1");
         }else if (bmi<25){
-            tv_plan.setText("Plan: Moderate");
+            tv_plan.setText("Plan: Fitness Plan 2");
             }else {
-            tv_plan.setText("Plan: Vigorous");
+            tv_plan.setText("Plan: Fitness Plan 3");
         }
     }
 

@@ -20,6 +20,11 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 import pk.name.myapplication.databinding.FragmentDeliverwork4Binding;
 import pk.name.myapplication.databinding.FragmentDeliverworkBinding;
 import pk.name.myapplication.databinding.FragmentHomeBinding;
@@ -32,6 +37,7 @@ public class deliverworkFragment extends Fragment implements View.OnClickListene
     public static final String mypref = "mypref";
     public static final String work1 = "work1Key";
     public static final String BMI = "BMIkey";
+    public static final String Tmr = "tmrKey";
 
     Button btn_done, btn_back, btn_title,btn_play,btn_pause;
     MediaPlayer mediaPlayer;
@@ -155,9 +161,21 @@ public class deliverworkFragment extends Fragment implements View.OnClickListene
                 ChangeFragment(new deliverworkFragment2());
                 break;
             case R.id.btn_next:
+                pause();
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.putBoolean(work1,true).commit();
                 ChangeFragment(new deliverworkFragment3());
+
+                Calendar calendar = Calendar.getInstance();
+                Date today = calendar.getTime();
+
+                calendar.add(Calendar.DAY_OF_YEAR,1);
+                Date tmr = calendar.getTime();
+
+                DateFormat dateFormat = new SimpleDateFormat("dd");
+
+                String todayAsString = dateFormat.format(today);
+                editor.putString(Tmr,todayAsString).commit();
                 break;
         }
     }

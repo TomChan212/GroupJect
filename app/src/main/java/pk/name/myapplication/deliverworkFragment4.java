@@ -20,6 +20,12 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
+
 import pk.name.myapplication.databinding.FragmentDeliverwork4Binding;
 import pk.name.myapplication.databinding.FragmentDeliverworkBinding;
 
@@ -31,6 +37,7 @@ public class deliverworkFragment4 extends Fragment implements View.OnClickListen
     public static final String sday = "sdayKey";
     public static final String work3 = "work3Key";
     public static final String BMI = "BMIkey";
+    public static final String Tmr = "tmrKey";
 
     Button btn_next, btn_back, btn_title,btn_play,btn_pause;
     MediaPlayer mediaPlayer;
@@ -154,10 +161,23 @@ public class deliverworkFragment4 extends Fragment implements View.OnClickListen
                 ChangeFragment(new deliverworkFragment2());
                 break;
             case R.id.btn_next:
+                pause();
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.putBoolean(work3,true).commit();
                 changeDay();
                 ChangeFragment(new deliverworkFragment2());
+
+                Calendar calendar = Calendar.getInstance();
+                Date today = calendar.getTime();
+
+                calendar.add(Calendar.DAY_OF_YEAR,1);
+                Date tmr = calendar.getTime();
+
+                DateFormat dateFormat = new SimpleDateFormat("dd");
+
+                String todayAsString = dateFormat.format(today);
+                editor.putString(Tmr,todayAsString).commit();
+
                 Toast.makeText(getContext().getApplicationContext(), "You have finished today set!!", Toast.LENGTH_LONG).show();
                 break;
         }
