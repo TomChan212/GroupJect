@@ -39,7 +39,7 @@ public class deliverworkFragment4 extends Fragment implements View.OnClickListen
     public static final String BMI = "BMIkey";
     public static final String Tmr = "tmrKey";
 
-    Button btn_next, btn_back, btn_title,btn_play;
+    Button btn_next, btn_back, btn_title,btn_play,btn_pause;
     MediaPlayer mediaPlayer;
     SurfaceView sv;
     SeekBar seekBar;
@@ -59,6 +59,8 @@ public class deliverworkFragment4 extends Fragment implements View.OnClickListen
         sharedPreferences = getActivity().getSharedPreferences(mypref, Context.MODE_PRIVATE);
         btn_play=root.findViewById(R.id.btn_play);
         btn_play.setOnClickListener(this);
+        btn_pause=root.findViewById(R.id.pause);
+        btn_pause.setOnClickListener(this);
         sv = root.findViewById(R.id.surfaceView);
         mediaPlayer=MediaPlayer.create(getActivity(),R.raw.plank);
         seekBar=root.findViewById(R.id.seekBar);
@@ -96,18 +98,12 @@ public class deliverworkFragment4 extends Fragment implements View.OnClickListen
 
     public void play(){
         try{
-            if(mediaPlayer.isPlaying()){
-                mediaPlayer.pause();
-                btn_play.setText("▶");
-            }else{
-                btn_play.setText("||");
-                getActivity().getWindow().setFormat(PixelFormat.UNKNOWN);
-                SurfaceHolder surfaceHolder = sv.getHolder();
-                surfaceHolder.setFixedSize(176, 144);
-                surfaceHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
-                mediaPlayer.setDisplay(surfaceHolder);
-                mediaPlayer.start();
-            }
+            getActivity().getWindow().setFormat(PixelFormat.UNKNOWN);
+            SurfaceHolder surfaceHolder = sv.getHolder();
+            surfaceHolder.setFixedSize(176, 144);
+            surfaceHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
+            mediaPlayer.setDisplay(surfaceHolder);
+            mediaPlayer.start();
         } catch (Exception e){
             Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_LONG).show();
         }
@@ -158,6 +154,9 @@ public class deliverworkFragment4 extends Fragment implements View.OnClickListen
                 play();
                 init_SeekBar();
                 break;
+            case R.id.pause:
+                pause();
+                break;
             case R.id.back:
                 ChangeFragment(new deliverworkFragment2());
                 break;
@@ -165,16 +164,26 @@ public class deliverworkFragment4 extends Fragment implements View.OnClickListen
                 pause();
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.putBoolean(work3,true).commit();
-                //changeDay();
+                changeDay();
                 ChangeFragment(new deliverworkFragment2());
 
+                Calendar calendar = Calendar.getInstance();
+                Date today = calendar.getTime();
+
+                calendar.add(Calendar.DAY_OF_YEAR,1);
+                Date tmr = calendar.getTime();
+
+                DateFormat dateFormat = new SimpleDateFormat("dd");
+
+                String todayAsString = dateFormat.format(today);
+                editor.putString(Tmr,todayAsString).commit();
 
                 Toast.makeText(getContext().getApplicationContext(), "You have finished today set!!", Toast.LENGTH_LONG).show();
                 break;
         }
     }
 
-   /* public void changeDay(){
+    public void changeDay(){
         if (day<7) {
             day += 1;
             sharedPreferences.edit().putInt(sday, day).commit();
@@ -183,7 +192,7 @@ public class deliverworkFragment4 extends Fragment implements View.OnClickListen
             day = 1;
             sharedPreferences.edit().putInt(sday, day).commit();
         }
-    }*/
+    }
 
 
     private void ChangeFragment(Fragment fragment) {

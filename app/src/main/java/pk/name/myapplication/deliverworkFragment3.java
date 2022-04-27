@@ -28,7 +28,7 @@ public class deliverworkFragment3 extends Fragment implements View.OnClickListen
     private FragmentDeliverwork3Binding binding;
 
 
-    Button btn_next, btn_back, btn_title,btn_play;
+    Button btn_next, btn_back, btn_title,btn_play,btn_pause;
     MediaPlayer mediaPlayer;
     SurfaceView sv;
     SeekBar seekBar;
@@ -54,6 +54,8 @@ public class deliverworkFragment3 extends Fragment implements View.OnClickListen
 
         btn_play=root.findViewById(R.id.btn_play);
         btn_play.setOnClickListener(this);
+        btn_pause=root.findViewById(R.id.pause);
+        btn_pause.setOnClickListener(this);
         sv = root.findViewById(R.id.surfaceView);
         mediaPlayer=MediaPlayer.create(getActivity(),R.raw.pushup);
         seekBar=root.findViewById(R.id.seekBar);
@@ -90,18 +92,12 @@ public class deliverworkFragment3 extends Fragment implements View.OnClickListen
 
     public void play(){
         try{
-            if(mediaPlayer.isPlaying()){
-                mediaPlayer.pause();
-                btn_play.setText("▶");
-            }else{
-                btn_play.setText("||");
-                getActivity().getWindow().setFormat(PixelFormat.UNKNOWN);
-                SurfaceHolder surfaceHolder = sv.getHolder();
-                surfaceHolder.setFixedSize(176, 144);
-                surfaceHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
-                mediaPlayer.setDisplay(surfaceHolder);
-                mediaPlayer.start();
-            }
+            getActivity().getWindow().setFormat(PixelFormat.UNKNOWN);
+            SurfaceHolder surfaceHolder = sv.getHolder();
+            surfaceHolder.setFixedSize(176, 144);
+            surfaceHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
+            mediaPlayer.setDisplay(surfaceHolder);
+            mediaPlayer.start();
         } catch (Exception e){
             Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_LONG).show();
         }
@@ -151,6 +147,9 @@ public class deliverworkFragment3 extends Fragment implements View.OnClickListen
             case R.id.btn_play:
                 play();
                 init_SeekBar();
+                break;
+            case R.id.pause:
+                pause();
                 break;
             case R.id.back:
                 ChangeFragment(new deliverworkFragment2());

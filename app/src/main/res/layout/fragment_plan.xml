@@ -23,15 +23,14 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/mid_btn"
+            android:id="@+id/mid_plan"
             android:layout_width="164dp"
             android:layout_height="127dp"
             android:layout_marginTop="20dp"
             android:backgroundTint="#000000"
             android:text="Mild Plan"
             app:layout_constraintEnd_toEndOf="@+id/white10"
-            app:layout_constraintHorizontal_bias="0.28"
-            app:layout_constraintStart_toStartOf="@+id/tv_plan2"
+            app:layout_constraintStart_toStartOf="@+id/white10"
             app:layout_constraintTop_toBottomOf="@+id/tv_plan2" />
 
         <TextView
@@ -64,7 +63,7 @@
             android:id="@+id/tv_plan2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
+            android:layout_marginStart="64dp"
             android:layout_marginTop="52dp"
             android:text="Mild Plan"
             android:textSize="20sp"
@@ -82,12 +81,12 @@
             android:src="@android:drawable/screen_background_light"
             android:translationZ="1dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.077"
+            app:layout_constraintHorizontal_bias="0.161"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/mid_btn2"
+            android:id="@+id/mod_plan"
             android:layout_width="164dp"
             android:layout_height="127dp"
             android:layout_marginTop="20dp"
@@ -98,7 +97,7 @@
             app:layout_constraintTop_toBottomOf="@+id/tv_plan3" />
 
         <Button
-            android:id="@+id/mid_btn3"
+            android:id="@+id/vig_plan"
             android:layout_width="164dp"
             android:layout_height="127dp"
             android:layout_marginTop="16dp"
@@ -145,22 +144,75 @@
             android:textSize="20sp"
             android:textStyle="bold"
             android:translationZ="2dp"
-            app:layout_constraintEnd_toEndOf="@+id/mid_btn"
+            app:layout_constraintEnd_toEndOf="@+id/mid_plan"
             app:layout_constraintHorizontal_bias="0.486"
-            app:layout_constraintStart_toStartOf="@+id/mid_btn"
-            app:layout_constraintTop_toBottomOf="@+id/mid_btn" />
+            app:layout_constraintStart_toStartOf="@+id/mid_plan"
+            app:layout_constraintTop_toBottomOf="@+id/mid_plan" />
 
         <ImageView
             android:id="@+id/white12"
             android:layout_width="142dp"
             android:layout_height="33dp"
-            android:layout_marginTop="468dp"
+            android:layout_marginTop="24dp"
             android:alpha="0.6"
             android:src="@android:drawable/screen_background_light"
             android:translationZ="1dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.089"
+            app:layout_constraintHorizontal_bias="0.144"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mid_plan" />
+
+        <Button
+            android:id="@+id/back_plan"
+            android:layout_width="99dp"
+            android:layout_height="51dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="24dp"
+            android:backgroundTint="#000000"
+            android:text="Back"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/vig_plan" />
+
+        <ImageView
+            android:id="@+id/white6"
+            android:layout_width="240dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="112dp"
+            android:alpha="0.6"
+            android:src="@android:drawable/screen_background_light"
+            android:translationZ="1dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.859"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/plan_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="Current plan:"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:translationZ="2dp"
+            app:layout_constraintBottom_toBottomOf="@+id/plan_btn"
+            app:layout_constraintStart_toEndOf="@+id/plan_btn"
+            app:layout_constraintTop_toTopOf="@+id/plan_btn"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <TextView
+            android:id="@+id/plan_status2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:text="plan"
+            android:textColor="#FF5722"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:translationZ="2dp"
+            app:layout_constraintBottom_toBottomOf="@+id/plan_status"
+            app:layout_constraintStart_toEndOf="@+id/plan_status"
+            app:layout_constraintTop_toTopOf="@+id/plan_status"
+            app:layout_constraintVertical_bias="0.0" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

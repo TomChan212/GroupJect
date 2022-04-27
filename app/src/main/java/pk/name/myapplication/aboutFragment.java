@@ -27,7 +27,7 @@ public class aboutFragment extends Fragment  implements  View.OnClickListener {
 
     Button btn_submit, about_back;
     EditText name_input, age_input, height_input, weight_input;
-    TextView cal_bmi;
+    TextView cal_bmi, tv_plan;
 
     SharedPreferences sharedPreferences;
     public static final String mypref = "mypref";
@@ -36,6 +36,7 @@ public class aboutFragment extends Fragment  implements  View.OnClickListener {
     public static final String height = "heightkey";
     public static final String weight = "weightkey";
     public static final String BMI = "BMIkey";
+    public static final String plan = "plankey";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -53,6 +54,7 @@ public class aboutFragment extends Fragment  implements  View.OnClickListener {
         weight_input = root.findViewById(R.id.weight_input);
         height_input = root.findViewById(R.id.height_input);
         age_input = root.findViewById(R.id.age_input);
+        tv_plan = root.findViewById(R.id.showPlan);
 
         cal_bmi = root.findViewById(R.id.cal_bmi);
         sharedPreferences = getContext().getSharedPreferences(mypref, Context.MODE_PRIVATE);
@@ -80,6 +82,7 @@ public class aboutFragment extends Fragment  implements  View.OnClickListener {
                         editor.putString(weight, weight_input.getText().toString());
                         editor.putString(height, height_input.getText().toString());
                         calBMI(Double.parseDouble(height_input.getText().toString()), Double.parseDouble(weight_input.getText().toString()));
+                        showPlan();
                         editor.commit();
                         Toast.makeText(getContext().getApplicationContext(), "Your plan has arrived! Please go to Deliverwork", Toast.LENGTH_LONG).show();
                     }
@@ -108,5 +111,18 @@ public class aboutFragment extends Fragment  implements  View.OnClickListener {
         FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.flFragment, fragment);
         fragmentTransaction.commit();
+    }
+
+    public void showPlan(){
+        if (Double.parseDouble(cal_bmi.getText().toString()) < 18.5) {
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putString(plan,"Mild Plan" ).commit();
+        }else if (Double.parseDouble(cal_bmi.getText().toString()) <25){
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putString(plan,"Moderate Plan" ).commit();
+        }else {
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putString(plan,"Vigorous Plan" ).commit();
+        }
     }
 }

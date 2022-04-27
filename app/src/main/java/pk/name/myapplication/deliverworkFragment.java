@@ -37,9 +37,9 @@ public class deliverworkFragment extends Fragment implements View.OnClickListene
     public static final String mypref = "mypref";
     public static final String work1 = "work1Key";
     public static final String BMI = "BMIkey";
-    public static final String todayK = "todayKey";
+    public static final String Tmr = "tmrKey";
 
-    Button btn_done, btn_back, btn_title,btn_play;
+    Button btn_done, btn_back, btn_title,btn_play,btn_pause;
     MediaPlayer mediaPlayer;
     SurfaceView sv;
     SeekBar seekBar;
@@ -59,6 +59,8 @@ public class deliverworkFragment extends Fragment implements View.OnClickListene
         sharedPreferences = getActivity().getSharedPreferences(mypref, Context.MODE_PRIVATE);
         btn_play = root.findViewById(R.id.btn_play);
         btn_play.setOnClickListener(this);
+        btn_pause=root.findViewById(R.id.pause);
+        btn_pause.setOnClickListener(this);
         sv = root.findViewById(R.id.surfaceView);
         mediaPlayer = MediaPlayer.create(getActivity(), R.raw.crunch);
         seekBar = root.findViewById(R.id.seekBar);
@@ -96,18 +98,12 @@ public class deliverworkFragment extends Fragment implements View.OnClickListene
 
     public void play(){
         try{
-            if(mediaPlayer.isPlaying()){
-                mediaPlayer.pause();
-                btn_play.setText("▶");
-            }else{
-                btn_play.setText("||");
-                getActivity().getWindow().setFormat(PixelFormat.UNKNOWN);
-                SurfaceHolder surfaceHolder = sv.getHolder();
-                surfaceHolder.setFixedSize(176, 144);
-                surfaceHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
-                mediaPlayer.setDisplay(surfaceHolder);
-                mediaPlayer.start();
-            }
+            getActivity().getWindow().setFormat(PixelFormat.UNKNOWN);
+            SurfaceHolder surfaceHolder = sv.getHolder();
+            surfaceHolder.setFixedSize(176, 144);
+            surfaceHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
+            mediaPlayer.setDisplay(surfaceHolder);
+            mediaPlayer.start();
         } catch (Exception e){
             Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_LONG).show();
         }
@@ -117,14 +113,12 @@ public class deliverworkFragment extends Fragment implements View.OnClickListene
         try{
             if(mediaPlayer.isPlaying()){
                 mediaPlayer.pause();
-                btn_play.setText("▶");
             }
         }
         catch (Exception e) {
             Toast.makeText(getActivity().getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
         }
     }
-
 
     public void AddSeekBarChangeListener() {
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
@@ -160,6 +154,9 @@ public class deliverworkFragment extends Fragment implements View.OnClickListene
                 play();
                 init_SeekBar();
                 break;
+            case R.id.pause:
+                pause();
+                break;
             case R.id.back:
                 ChangeFragment(new deliverworkFragment2());
                 break;
@@ -172,10 +169,13 @@ public class deliverworkFragment extends Fragment implements View.OnClickListene
                 Calendar calendar = Calendar.getInstance();
                 Date today = calendar.getTime();
 
+                calendar.add(Calendar.DAY_OF_YEAR,1);
+                Date tmr = calendar.getTime();
+
                 DateFormat dateFormat = new SimpleDateFormat("dd");
 
                 String todayAsString = dateFormat.format(today);
-                editor.putString(todayK,todayAsString).commit();
+                editor.putString(Tmr,todayAsString).commit();
                 break;
         }
     }
@@ -185,5 +185,4 @@ public class deliverworkFragment extends Fragment implements View.OnClickListene
         fragmentTransaction.replace(R.id.flFragment, fragment).addToBackStack(null);
         fragmentTransaction.commit();
     }
-
 }
