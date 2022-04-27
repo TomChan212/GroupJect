@@ -33,6 +33,7 @@ public class deliverworkFragment2 extends Fragment implements View.OnClickListen
     private boolean workTwo;
     private boolean workThree;
     private int tmr;
+    int day;
 
     SharedPreferences sharedPreferences;
     public static final String mypref = "mypref";
@@ -41,6 +42,7 @@ public class deliverworkFragment2 extends Fragment implements View.OnClickListen
     public static final String work2 = "work2Key";
     public static final String work3 = "work3Key";
     public static final String Tmr = "tmrKey";
+    public static final String sday = "sdayKey";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -58,13 +60,14 @@ public class deliverworkFragment2 extends Fragment implements View.OnClickListen
         btn_w3.setOnClickListener(this);
         btn_menu=root.findViewById(R.id.menu);
         btn_menu.setOnClickListener(this);
-        tv_day=root.findViewById(R.id.test);
+        tv_day=root.findViewById(R.id.tv_day);
         tv_plan=root.findViewById(R.id.showPlan);
         checkbox1 = root.findViewById(R.id.checkbox1);
         checkbox2 = root.findViewById(R.id.checkbox2);
         checkbox3 = root.findViewById(R.id.checkbox3);
 
         sharedPreferences = getActivity().getSharedPreferences(mypref, Context.MODE_PRIVATE);
+        day = sharedPreferences.getInt(sday,1);
 
         try {
             tmr = Integer.valueOf(sharedPreferences.getString(Tmr, ""));
@@ -78,6 +81,7 @@ public class deliverworkFragment2 extends Fragment implements View.OnClickListen
         DateFormat dateFormat = new SimpleDateFormat("dd");
         int todayAsString = Integer.valueOf(dateFormat.format(today));
 
+
         if (tmr != todayAsString){
             btn_w2.setEnabled(false);
             btn_w3.setEnabled(false);
@@ -87,7 +91,6 @@ public class deliverworkFragment2 extends Fragment implements View.OnClickListen
             editor.putBoolean(work2,false).commit();
             editor.putBoolean(work3,false).commit();
         }
-
 
 
         bmi = Float.valueOf(sharedPreferences.getString(BMI,"10"));
@@ -121,7 +124,7 @@ public class deliverworkFragment2 extends Fragment implements View.OnClickListen
         }
 
 
-
+        tv_day.setText("Day: "+day+"/7");
 
         showPlan();
 
@@ -130,11 +133,11 @@ public class deliverworkFragment2 extends Fragment implements View.OnClickListen
 
     public void showPlan(){
         if (bmi<18.5) {
-            tv_plan.setText("Plan: Fitness Plan 1");
+            tv_plan.setText("Plan: Mild");
         }else if (bmi<25){
-            tv_plan.setText("Plan: Fitness Plan 2");
+            tv_plan.setText("Plan: Moderate");
             }else {
-            tv_plan.setText("Plan: Fitness Plan 3");
+            tv_plan.setText("Plan: Vigorous");
         }
     }
 
