@@ -168,16 +168,6 @@ public class deliverworkFragment4 extends Fragment implements View.OnClickListen
                 changeDay();
                 ChangeFragment(new deliverworkFragment2());
 
-                Calendar calendar = Calendar.getInstance();
-                Date today = calendar.getTime();
-
-                calendar.add(Calendar.DAY_OF_YEAR,1);
-                Date tmr = calendar.getTime();
-
-                DateFormat dateFormat = new SimpleDateFormat("dd");
-
-                String todayAsString = dateFormat.format(today);
-                editor.putString(Tmr,String.valueOf(day)).commit();
 
                 Toast.makeText(getContext().getApplicationContext(), "You have finished today set!!", Toast.LENGTH_LONG).show();
                 break;
