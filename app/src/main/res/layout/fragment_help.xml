@@ -1,98 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gym2"
     tools:context=".helpFragment">
 
-    <ScrollView
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="184dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="100dp"
+        android:backgroundTint="#000000"
+        android:text="Help"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/help_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="4dp"
+        android:backgroundTint="#000000"
+        android:text="Back"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="0dp"
+        android:background="#B3FFFFFF"
+        app:layout_constraintBottom_toTopOf="@id/help_back"
+        app:layout_constraintTop_toBottomOf="@id/button3">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp">
 
-            <Button
-                android:id="@+id/button3"
-                android:layout_width="184dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
-                android:layout_marginTop="136dp"
-                android:backgroundTint="#000000"
-                android:text="Help"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-            <TextView
-                android:id="@+id/FAQ"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
-                android:layout_marginTop="80dp"
-                android:justificationMode="inter_word"
-                android:text="FAQ"
-                android:textColor="#2196F3"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/button3" />
+                <TextView
+                    android:id="@+id/FAQ"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="80dp"
+                    android:justificationMode="inter_word"
+                    android:text="FAQ"
+                    android:textColor="#2196F3"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/button3" />
 
-            <Button
-                android:id="@+id/help_back"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="4dp"
-                android:backgroundTint="#000000"
-                android:text="Back"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/licse" />
+                <TextView
+                    android:id="@+id/licse"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="80dp"
+                    android:justificationMode="inter_word"
+                    android:text="License"
+                    android:textStyle="italic"
+                    app:layout_constraintEnd_toEndOf="@+id/FAQ3"
+                    app:layout_constraintStart_toStartOf="@+id/FAQ3"
+                    app:layout_constraintTop_toBottomOf="@+id/FAQ3" />
 
-            <TextView
-                android:id="@+id/licse"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="80dp"
-                android:justificationMode="inter_word"
-                android:text="License"
-                android:textStyle="italic"
-                app:layout_constraintEnd_toEndOf="@+id/FAQ3"
-                app:layout_constraintStart_toStartOf="@+id/FAQ3"
-                app:layout_constraintTop_toBottomOf="@+id/FAQ3" />
+                <TextView
+                    android:id="@+id/FAQ2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="80dp"
+                    android:justificationMode="inter_word"
+                    android:text="FAQ2"
+                    android:textColor="#03A9F4"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@+id/FAQ"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/FAQ" />
 
-            <TextView
-                android:id="@+id/FAQ2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="80dp"
-                android:justificationMode="inter_word"
-                android:text="FAQ2"
-                android:textColor="#03A9F4"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="@+id/FAQ"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/FAQ" />
+                <TextView
+                    android:id="@+id/FAQ3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="80dp"
+                    android:justificationMode="inter_word"
+                    android:text="FAQ3"
+                    android:textColor="#03A9F4"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@+id/FAQ2"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/FAQ2" />
 
-            <TextView
-                android:id="@+id/FAQ3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="80dp"
-                android:justificationMode="inter_word"
-                android:text="FAQ3"
-                android:textColor="#03A9F4"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="@+id/FAQ2"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/FAQ2" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+    </FrameLayout>
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
-
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
