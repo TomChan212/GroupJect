@@ -38,6 +38,7 @@ public class deliverworkFragment4 extends Fragment implements View.OnClickListen
     public static final String work3 = "work3Key";
     public static final String BMI = "BMIkey";
     public static final String Tmr = "tmrKey";
+    public static final String plan = "plankey";
 
     Button btn_next, btn_back, btn_title,btn_play;
     MediaPlayer mediaPlayer;
@@ -47,6 +48,7 @@ public class deliverworkFragment4 extends Fragment implements View.OnClickListen
     int[] raw_index={R.raw.plank};
     int day;
     float bmi;
+    String Plan;
 
 
     @Override
@@ -67,7 +69,7 @@ public class deliverworkFragment4 extends Fragment implements View.OnClickListen
 
         day = sharedPreferences.getInt(sday, 1);
 
-
+        Plan = sharedPreferences.getString(plan,"Moderate Plan");
 
         btn_next= root.findViewById(R.id.btn_next);
         btn_back= root.findViewById(R.id.back);
@@ -86,11 +88,26 @@ public class deliverworkFragment4 extends Fragment implements View.OnClickListen
 
     public void showGroup(){
         if (bmi<18.5) {
-            tv_group.setText("Groups of 5 (2 groups)");
+            if (Plan == "Mild Plan")
+                tv_group.setText("Groups of 5 (1 groups)");
+            if (Plan == "Moderate Plan")
+                tv_group.setText("Groups of 5 (2 groups)");
+            if (Plan == "Vigorous Plan")
+                tv_group.setText("Groups of 5 (3 groups)");
         }else if (bmi<25){
-            tv_group.setText("Groups of 10 (5 groups)");
+            if (Plan == "Mild Plan")
+                tv_group.setText("Groups of 10 (4 groups)");
+            if (Plan == "Moderate Plan")
+                tv_group.setText("Groups of 10 (5 groups)");
+            if (Plan == "Vigorous Plan")
+                tv_group.setText("Groups of 10 (6 groups)");
         }else {
-            tv_group.setText("Groups of 20 (10 groups)");
+            if (Plan == "Mild Plan")
+                tv_group.setText("Groups of 20 (9 groups)");
+            if (Plan == "Moderate Plan")
+                tv_group.setText("Groups of 20 (10 groups)");
+            if (Plan == "Vigorous Plan")
+                tv_group.setText("Groups of 20 (11 groups)");
         }
     }
 

@@ -36,12 +36,14 @@ public class deliverworkFragment3 extends Fragment implements View.OnClickListen
     int[] raw_index={R.raw.pushup};
     int day;
     float bmi;
+    String Plan;
 
     SharedPreferences sharedPreferences;
     public static final String mypref = "mypref";
     public static final String BMI = "BMIkey";
     public static final String sday = "sdayKey";
     public static final String work2 = "work2Key";
+    public static final String plan = "plankey";
 
 
     @Override
@@ -60,6 +62,7 @@ public class deliverworkFragment3 extends Fragment implements View.OnClickListen
         seekBar.setClickable(false);
         AddSeekBarChangeListener();
 
+        Plan = sharedPreferences.getString(plan,"Moderate Plan");
 
         tv_day=root.findViewById(R.id.test);
 
@@ -80,11 +83,26 @@ public class deliverworkFragment3 extends Fragment implements View.OnClickListen
 
     public void showGroup(){
         if (bmi<18.5) {
-            tv_group.setText("Groups of 5 (2 groups)");
+            if (Plan == "Mild Plan")
+                tv_group.setText("Groups of 5 (1 groups)");
+            if (Plan == "Moderate Plan")
+                tv_group.setText("Groups of 5 (2 groups)");
+            if (Plan == "Vigorous Plan")
+                tv_group.setText("Groups of 5 (3 groups)");
         }else if (bmi<25){
-            tv_group.setText("Groups of 10 (5 groups)");
+            if (Plan == "Mild Plan")
+                tv_group.setText("Groups of 10 (4 groups)");
+            if (Plan == "Moderate Plan")
+                tv_group.setText("Groups of 10 (5 groups)");
+            if (Plan == "Vigorous Plan")
+                tv_group.setText("Groups of 10 (6 groups)");
         }else {
-            tv_group.setText("Groups of 20 (10 groups)");
+            if (Plan == "Mild Plan")
+                tv_group.setText("Groups of 20 (9 groups)");
+            if (Plan == "Moderate Plan")
+                tv_group.setText("Groups of 20 (10 groups)");
+            if (Plan == "Vigorous Plan")
+                tv_group.setText("Groups of 20 (11 groups)");
         }
     }
 
