@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -39,13 +40,14 @@ public class signUpFragment extends Fragment  implements  View.OnClickListener {
     public static final String BMI = "BMIkey";
     public static final String plan = "plankey";
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = FragmentSignUpBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
         // Inflate the layout for this fragment
-
+        ((AppCompatActivity)getActivity()).getSupportActionBar().hide();
 
         btn_submit = root.findViewById(R.id.btn_submit);
         btn_submit.setOnClickListener(this);
@@ -121,4 +123,5 @@ public class signUpFragment extends Fragment  implements  View.OnClickListener {
             editor.putString(plan,"Vigorous Plan" ).commit();
         }
     }
+
 }

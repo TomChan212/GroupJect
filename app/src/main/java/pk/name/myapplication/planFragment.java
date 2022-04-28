@@ -63,16 +63,19 @@ public class planFragment extends Fragment  implements View.OnClickListener{
             case R.id.mid_plan:
                 editor.putString(plan,"Mild Plan").commit();
                 Toast.makeText(getContext().getApplicationContext(), "Your have changed to the Mild Plan!!",Toast.LENGTH_LONG).show();
+                ChangeFragment(new menuFragment());
                 break;
 
             case R.id.mod_plan:
                 editor.putString(plan,"Moderate Plan").commit();
                 Toast.makeText(getContext().getApplicationContext(), "Your have changed to the Moderate Plan!!",Toast.LENGTH_LONG).show();
+                ChangeFragment(new menuFragment());
                 break;
 
             case R.id.vig_plan:
                 editor.putString(plan,"Vigorous Plan").commit();
                 Toast.makeText(getContext().getApplicationContext(), "Your have changed to the Vigorous Plan!!",Toast.LENGTH_LONG).show();
+                ChangeFragment(new menuFragment());
                 break;
 
             case R.id.back_plan:
