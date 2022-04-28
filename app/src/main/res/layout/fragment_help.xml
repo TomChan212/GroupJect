@@ -12,7 +12,7 @@
         android:layout_width="184dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="92dp"
         android:backgroundTint="#000000"
         android:text="Help"
         app:layout_constraintStart_toStartOf="parent"
@@ -29,10 +29,12 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_width="363dp"
+        android:layout_height="438dp"
         android:background="#B3FFFFFF"
         app:layout_constraintBottom_toTopOf="@id/help_back"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/button3">
 
         <ScrollView
