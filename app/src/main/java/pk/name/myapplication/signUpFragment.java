@@ -6,6 +6,7 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.util.Log;
@@ -16,6 +17,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
 import java.text.DecimalFormat;
 
@@ -39,7 +41,7 @@ public class signUpFragment extends Fragment  implements  View.OnClickListener {
     public static final String weight = "weightkey";
     public static final String BMI = "BMIkey";
     public static final String plan = "plankey";
-
+    Toolbar toolbar;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -47,7 +49,6 @@ public class signUpFragment extends Fragment  implements  View.OnClickListener {
         binding = FragmentSignUpBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
         // Inflate the layout for this fragment
-        ((AppCompatActivity)getActivity()).getSupportActionBar().hide();
 
         btn_submit = root.findViewById(R.id.btn_submit);
         btn_submit.setOnClickListener(this);
@@ -83,6 +84,7 @@ public class signUpFragment extends Fragment  implements  View.OnClickListener {
                     editor.putString(age, age_input.getText().toString());
                     editor.putString(weight, weight_input.getText().toString());
                     editor.putString(height, height_input.getText().toString());
+                    editor.putBoolean("bar",true);
                     calBMI(Double.parseDouble(height_input.getText().toString()), Double.parseDouble(weight_input.getText().toString()));
                     showPlan();
                     editor.commit();

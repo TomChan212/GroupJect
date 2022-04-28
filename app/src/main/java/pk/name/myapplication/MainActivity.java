@@ -49,8 +49,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        toolbar = findViewById(R.id.toolbar);
-        setActionBar(toolbar);
 
         getSupportActionBar().hide();
 
@@ -75,9 +73,14 @@ public class MainActivity extends AppCompatActivity {
         uwork.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
-                FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.flFragment, new menuFragment()).addToBackStack(null);
-                fragmentTransaction.commit();
+                if (sharedPreferences.getBoolean("bar",false)){
+                    barLayout.setVisibility(View.VISIBLE);
+                    FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                    fragmentTransaction.replace(R.id.flFragment, new menuFragment()).addToBackStack(null);
+                    fragmentTransaction.commit();
+                }else{
+                    Toast.makeText(getApplicationContext(), "Please enter info first to use this function.", Toast.LENGTH_LONG).show();
+                }
                 return false;
             }
         });
@@ -87,9 +90,13 @@ public class MainActivity extends AppCompatActivity {
         help.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
-                FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.flFragment, new helpFragment()).addToBackStack(null);
-                fragmentTransaction.commit();
+                if (sharedPreferences.getBoolean("bar",false)) {
+                    FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                    fragmentTransaction.replace(R.id.flFragment, new helpFragment()).addToBackStack(null);
+                    fragmentTransaction.commit();
+                }else{
+                    Toast.makeText(getApplicationContext(), "Please enter info first to use this function.", Toast.LENGTH_LONG).show();
+                }
                 return false;
             }
         });
@@ -106,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
                 public boolean onTouch(View view, MotionEvent motionEvent) {
 
                     if (typed == false) {
-                        if (sharedPreferences.getString(name, "").isEmpty() ||
+                        if (    sharedPreferences.getString(name, "").isEmpty() ||
                                 sharedPreferences.getString(weight, "").isEmpty() ||
                                 sharedPreferences.getString(height, "").isEmpty() ||
                                 sharedPreferences.getString(age, "").isEmpty() ||
@@ -115,12 +122,14 @@ public class MainActivity extends AppCompatActivity {
                             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
                             fragmentTransaction.replace(R.id.flFragment, new signUpFragment());
                             fragmentTransaction.commit();
+                            sharedPreferences.edit().putBoolean("bar",false).commit();
                         } else {
                             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
                             fragmentTransaction.replace(R.id.flFragment, new menuFragment());
                             fragmentTransaction.commit();
+                            sharedPreferences.edit().putBoolean("bar",true).commit();
                         }
-                        barLayout.setVisibility(View.VISIBLE);
+                            barLayout.setVisibility(View.VISIBLE);
                         typed = true;
                     }
                     return false;
@@ -128,33 +137,8 @@ public class MainActivity extends AppCompatActivity {
             });
         }
     };
-
 }
-    /*
-    @Override
-    public boolean onKeyDown(int keyCode,KeyEvent e){
-        if (keyCode == KeyEvent.KEYCODE_BACK){
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setMessage(getResources().getString(R.string.Wanna_quit)).setCancelable(false).setPositiveButton(getResources().getString(R.string.quit_yes), new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialogInterface, int i) {
-                    finish();
-                }
-            }).setNegativeButton(getResources().getString(R.string.quit_no), new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialogInterface, int i) {
-                    dialogInterface.cancel();
-                }
-            });
-            AlertDialog alertDialog = builder.create();
-            alertDialog.setTitle(getResources().getString(R.string.quit_title));
-            alertDialog.show();
-            return true;
-        }
-        else{
-            return super.onKeyDown(keyCode,e);
-        }
-    }*/
+
 
 
 
