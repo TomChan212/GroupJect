@@ -113,11 +113,11 @@ public class MainActivity extends AppCompatActivity {
                                 sharedPreferences.getString(name, "").isEmpty() ||
                                 sharedPreferences.getString(BMI, "").isEmpty()) {
                             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                            fragmentTransaction.replace(R.id.flFragment, new aboutFragment()).addToBackStack(null);
+                            fragmentTransaction.replace(R.id.flFragment, new signUpFragment());
                             fragmentTransaction.commit();
                         } else {
                             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                            fragmentTransaction.replace(R.id.flFragment, new menuFragment()).addToBackStack(null);
+                            fragmentTransaction.replace(R.id.flFragment, new menuFragment());
                             fragmentTransaction.commit();
                         }
                         barLayout.setVisibility(View.VISIBLE);
