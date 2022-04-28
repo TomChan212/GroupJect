@@ -62,6 +62,19 @@ public class aboutFragment extends Fragment  implements  View.OnClickListener {
         if (sharedPreferences.contains(BMI)) {
             cal_bmi.setText(sharedPreferences.getString(BMI, ""));
         }
+        if (sharedPreferences.contains(name)) {
+            name_input.setText(sharedPreferences.getString(name, ""));
+        }
+        if (sharedPreferences.contains(age)) {
+            age_input.setText(sharedPreferences.getString(age, ""));
+        }
+        if (sharedPreferences.contains(height)) {
+            height_input.setText(sharedPreferences.getString(height, ""));
+        }
+        if (sharedPreferences.contains(weight)) {
+            weight_input.setText(sharedPreferences.getString(weight, ""));
+        }
+
 
         return root;
     }
