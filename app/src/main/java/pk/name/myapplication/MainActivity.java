@@ -23,7 +23,7 @@ import com.google.android.material.appbar.AppBarLayout;
 
 public class MainActivity extends AppCompatActivity {
     homeFragment homeFragment = new homeFragment();
-
+//somehting
     SharedPreferences sharedPreferences;
     public static final String mypref = "mypref";
     public static final String name = "mypref";
